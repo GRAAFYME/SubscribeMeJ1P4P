@@ -1,0 +1,83 @@
+CREATE TABLE news
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+title varchar(250) NOT NULL,
+author varchar(50) NOT NULL,
+date varchar(50) NOT NULL,
+message text NOT NULL
+)
+
+CREATE TABLE ec_cat
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name varchar(50) NOT NULL UNIQUE
+)
+
+
+CREATE TABLE faq_cat
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name varchar(50) NOT NULL UNIQUE
+)
+
+CREATE TABLE links_cat
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name varchar(50) NOT NULL UNIQUE
+)
+
+CREATE TABLE roles
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name varchar(50) NOT NULL UNIQUE
+)
+
+CREATE TABLE ec
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+name varchar(250) NOT NULL,
+cat_id int NOT NULL,
+description text NOT NULL,
+date varchar(50) NOT NULL,
+enrollments text,
+FOREIGN KEY (cat_id) REFERENCES ec_cat(id)
+)
+
+CREATE TABLE faq
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+question text NOT NULL,
+answer text NOT NULL,
+cat_id int NOT NULL,
+FOREIGN KEY (cat_id) REFERENCES faq_cat(id)
+)
+
+CREATE TABLE links
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+title varchar(250) NOT NULL,
+href varchar(250) NOT NULL,
+cat_id int NOT NULL,
+FOREIGN KEY (cat_id) REFERENCES links_cat(id)
+)
+
+CREATE TABLE users
+(
+id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+username varchar(50) NOT NULL UNIQUE,
+password varchar(50) NOT NULL,
+email varchar(255) NOT NULL UNIQUE,
+rol_id int NOT NULL,
+FOREIGN KEY (rol_id) REFERENCES roles(id)
+)
+
+
+// INSERT USERS:
+
+INSERT INTO roles (name) VALUES ('administrator')
+INSERT INTO roles (name) VALUES ('teacher')
+INSERT INTO roles (name) VALUES ('student')
+
+INSERT INTO `subscribeme`.`users` (`id`, `username`, `password`, `email`, `rol_id`) VALUES ('1', 'admin', 'P@ssword', 'admin@subscribeme.nl', '1'), 
+											   ('2', 'teacher', 'P@ssword', 'teacher@subscribeme.nl', '2'), 
+											   ('3', 'student', 'P@ssword','student@subscribeme.nl', '3');
