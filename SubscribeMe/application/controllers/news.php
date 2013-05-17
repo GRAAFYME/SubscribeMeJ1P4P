@@ -21,16 +21,18 @@ class News extends CI_Controller {
 	{
 		$data['news_item'] = $this->news_model->get_news($slug);
 
-		if (empty($data['news_item']))
+		if (empty($data['news_item'])) // News item DOESN'T exitst!
 		{
 			show_404();
 		}
+		else // News item DOES exitst!
+		{	
+			$data['title'] = $data['news_item']['title'];
 
-		$data['title'] = $data['news_item']['title'];
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('news/view', $data);
-		$this->load->view('templates/footer');
+			$this->load->view('templates/header', $data);
+			$this->load->view('news/view', $data);
+			$this->load->view('templates/footer');
+		}
 	}
 
 	public function create()
@@ -43,14 +45,14 @@ class News extends CI_Controller {
 		$this->form_validation->set_rules('title', 'Title', 'required');
 		$this->form_validation->set_rules('text', 'text', 'required');
 		
-		if ($this->form_validation->run() === FALSE)
+		if ($this->form_validation->run() === FALSE) // Something went wrong!
 		{
 			$this->load->view('templates/header', $data);	
 			$this->load->view('news/create');
 			$this->load->view('templates/footer');
 			
 		}
-		else
+		else // New news item succesfully created!
 		{
 			$this->news_model->set_news();
 			$this->load->view('news/success');
