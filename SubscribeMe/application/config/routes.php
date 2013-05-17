@@ -38,9 +38,13 @@
 |
 */
 
-$route['default_controller'] = 'pages/view';
+$route['default_controller'] = 'login';
 
 $route['news'] = 'news';
+$route['login'] = 'login';
+$route['login/signup'] = 'login/signup';
+$route['login/create_member'] = 'login/create_member';
+$route['login/validate_credentials'] = 'login/validate_credentials';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news/create'] = 'news/create';
 
