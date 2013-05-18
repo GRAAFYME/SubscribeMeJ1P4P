@@ -1,6 +1,7 @@
 <?php
 
 class Membership_model extends CI_Model {
+	//validates the user input with the database, if the number of rows equils 1 this function will return true to the controller
 	function validate() {
 		$this->db->where('username', $this->input->post('username'));
 		$this->db->where('password',md5($this->input->post('password')));
@@ -10,6 +11,7 @@ class Membership_model extends CI_Model {
 			return true;
 		}
 	}
+	//stores the user input in the users table , the password will be hashed into the database
 	function create_member() {
 
 		$username = $this->input->post('username');

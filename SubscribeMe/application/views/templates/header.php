@@ -9,6 +9,7 @@
 <body>
 	<div id="container"><!-- Start Container -->
 		<div id="header"><!-- Start Header -->
+			<a href="/logout">Logout</a> <!-- logout function -->
 			<div id="menubar">
 				<div id="menu"><!-- Start Menu -->
 					<!--<?php echo $menu ?>-->

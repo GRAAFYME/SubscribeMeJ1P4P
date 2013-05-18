@@ -27,7 +27,7 @@
 |
 |	$route['default_controller'] = 'welcome';
 |
-| This route indicates which controller class should be loaded if the
+| This route indicates which controller class should be loaded if thes
 | URI contains no data. In the above example, the "welcome" class
 | would be loaded.
 |
@@ -38,19 +38,24 @@
 |
 */
 
-$route['default_controller'] = 'login';
+	$route['default_controller'] = 'login';
+	$route['login'] = 'login';
+	$route['xml_parser'] = 'xml_parser';
+	$route['logout'] = 'logout';
+	$route['news'] = 'news';
+	$route['sessiontest'] = 'sessiontest';
+	$route['login/signup'] = 'login/signup';
+	$route['login/create_member'] = 'login/create_member';
+	$route['login/validate_credentials'] = 'login/validate_credentials';
+	$route['news/(:any)'] = 'news/view/$1';
+	$route['news/create'] = 'news/create';
 
-$route['news'] = 'news';
-$route['login'] = 'login';
-$route['login/signup'] = 'login/signup';
-$route['login/create_member'] = 'login/create_member';
-$route['login/validate_credentials'] = 'login/validate_credentials';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news/create'] = 'news/create';
 
-$route['welcome'] = 'welcome';
+	$route['welcome'] = 'welcome';
 
-$route['(:any)'] = 'pages/view/$1';
+	$route['(:any)'] = 'pages/view/$1';
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

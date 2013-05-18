@@ -5,16 +5,30 @@ class News extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('news_model');
+
+
+		
 	}
 
 	public function index()
 	{
-		$data['news'] = $this->news_model->get_news();
-		$data['title'] = 'News archive';
+		
+			if(!$this->session->userdata('username'))
+			{
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('news/index', $data);
-		$this->load->view('templates/footer');
+				redirect('login');
+			}
+			else
+			{
+				$data['news'] = $this->news_model->get_news();
+				$data['title'] = 'News archive';
+
+				$this->load->view('templates/header', $data);
+				$this->load->view('news/index', $data);
+				$this->load->view('templates/footer');
+			}
+		
+
 	}
 
 	public function view($slug)
@@ -37,6 +51,7 @@ class News extends CI_Controller {
 
 	public function create()
 	{
+		
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
@@ -57,5 +72,6 @@ class News extends CI_Controller {
 			$this->news_model->set_news();
 			$this->load->view('news/success');
 		}
+
 	}
 }

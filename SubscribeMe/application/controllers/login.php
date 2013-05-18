@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 		$this->load->view('login_form');
 		$this->load->view('includes/footer');
 	}
-
+//this controller stores the user data in an array if the user information is correct otherwise hell load the index
 	function validate_credentials()
 	{
 		$this->load->model('membership_model');
@@ -33,6 +33,7 @@ class Login extends CI_Controller {
 		$this->load->view('includes/header');
 		$this->load->view('signup_form');
 		$this->load->view('includes/footer');
+//creates a new member
 	}
 	function create_member()
 	{
