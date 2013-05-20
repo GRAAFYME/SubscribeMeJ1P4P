@@ -4,9 +4,9 @@ class Login extends CI_Controller {
 
 	function index()
 	{
-		$this->load->view('includes/header');
+		$this->load->view('templates/login/header');
 		$this->load->view('login_form');
-		$this->load->view('includes/footer');
+		$this->load->view('templates/login/footer');
 	}
 //this controller stores the user data in an array if the user information is correct otherwise hell load the index
 	function validate_credentials()
@@ -30,9 +30,9 @@ class Login extends CI_Controller {
 	}
 	function signup()
 	{
-		$this->load->view('includes/header');
+		$this->load->view('templates/login/header');
 		$this->load->view('signup_form');
-		$this->load->view('includes/footer');
+		$this->load->view('templates/login/footer');
 //creates a new member
 	}
 	function create_member()
@@ -48,9 +48,9 @@ class Login extends CI_Controller {
 
 		if($this->form_validation->run() == FALSE)
 		{
-			$this->load->view('includes/header');
+			$this->load->view('templates/login/header');
 			$this->load->view('signup_form');
-			$this->load->view('includes/footer');
+			$this->load->view('templates/login/footer');
 		}
 		else
 		{
@@ -61,16 +61,15 @@ class Login extends CI_Controller {
 
 				$data['account_created'] = 'Your account has been created <br></br> You may wanna login.';
 
-				$this->load->view('includes/header');
+				$this->load->view('templates/login/header');
 				$this->load->view('login_form', $data);
-				$this->load->view('includes/footer');
-
+				$this->load->view('templates/login/footer');
 			}
 			else
 			{
-				$this->load->view('includes/header');
+				$this->load->view('templates/login/header');
 				$this->load->view('signup_form');
-				$this->load->view('includes/footer');
+				$this->load->view('templates/login/footer');
 			}
 		}
 

@@ -4,29 +4,30 @@ class News extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('news_model');
-
-
-		
+		$this->load->model('news_model');		
 	}
 
 	public function index()
 	{
 		
-			if(!$this->session->userdata('username'))
+			/*if(!$this->session->userdata('username'))
 			{
 
 				redirect('login');
 			}
 			else
-			{
+			{*/
+				$this->load->library('menu');
+				$menu = new Menu;
+
+				$data['menu'] = $menu->show_menu();
 				$data['news'] = $this->news_model->get_news();
 				$data['title'] = 'News archive';
 
-				$this->load->view('templates/header', $data);
+				$this->load->view('templates/frontend/header', $data);
 				$this->load->view('news/index', $data);
-				$this->load->view('templates/footer');
-			}
+				$this->load->view('templates/frontend/footer');
+			//}
 		
 
 	}
@@ -41,37 +42,46 @@ class News extends CI_Controller {
 		}
 		else // News item DOES exitst!
 		{	
+			$this->load->library('menu');
+			$menu = new Menu;
+
+			$data['menu'] = $menu->show_menu();
 			$data['title'] = $data['news_item']['title'];
 
-			$this->load->view('templates/header', $data);
+			$this->load->view('templates/frontend/header', $data);
 			$this->load->view('news/view', $data);
-			$this->load->view('templates/footer');
+			$this->load->view('templates/frontend/footer');
 		}
 	}
 
 	public function create()
-	{
-		
+	{				
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		
+
+		$this->load->library('menu');
+		$menu = new Menu;
+
+		$data['menu'] = $menu->show_menu();
 		$data['title'] = 'Create a news item';
 		
 		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('text', 'text', 'required');
+		$this->form_validation->set_rules('text', 'Text', 'required');
 		
 		if ($this->form_validation->run() === FALSE) // Something went wrong!
 		{
-			$this->load->view('templates/header', $data);	
+			$this->load->view('templates/frontend/header', $data);	
 			$this->load->view('news/create');
-			$this->load->view('templates/footer');
+			$this->load->view('templates/frontend/footer');
 			
 		}
 		else // New news item succesfully created!
 		{
 			$this->news_model->set_news();
+			
+			$this->load->view('templates/frontend/header', $data);	
 			$this->load->view('news/success');
+			$this->load->view('templates/frontend/footer');
 		}
-
 	}
 }
