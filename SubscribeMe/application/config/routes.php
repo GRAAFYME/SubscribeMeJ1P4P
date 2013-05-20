@@ -41,6 +41,9 @@
 	$route['default_controller'] = 'login';
 	$route['login'] = 'login';
 	$route['xml_parser'] = 'xml_parser';
+	$route['xml_parser/getxml'] ='xml_parser/getxml';
+	$route['upload/do_upload'] = 'upload/do_upload';
+	$route['upload'] = 'upload';
 	$route['logout'] = 'logout';
 	$route['news'] = 'news';
 	$route['sessiontest'] = 'sessiontest';
