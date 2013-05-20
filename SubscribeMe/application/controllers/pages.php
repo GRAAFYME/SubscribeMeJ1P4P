@@ -10,12 +10,15 @@ class Pages extends CI_Controller {
 		}
 		else // We DO have a page for that!
 		{
-			
-			$data['title'] = ucfirst($page); // Capitalize the first letter 
-			
-			$this->load->view('templates/header', $data);
-			$this->load->view('pages/'.$page, $data);
-			$this->load->view('templates/footer', $data);
+			$this->load->library('menu');
+			$menu = new Menu;
+
+			$data['title'] = ucfirst($page); // Capitalize the first letter
+			$data['menu'] = $menu->show_menu();
+
+			$this->load->view('templates/frontend/header', $data);
+			$this->load->view('pages/'.$page);
+			$this->load->view('templates/frontend/footer');
 		}
 	}
 }

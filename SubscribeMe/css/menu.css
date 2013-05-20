@@ -13,7 +13,7 @@
     background-color: #000;
     color: #FFF;
     height: 30px;
-    width: 800px; 
+    width: 900px; 
     margin: 0px auto 0px auto; 
 }
 
@@ -49,7 +49,7 @@
 {
     float: left;
     position: relative;
-    width: 33%;
+    width: 25%;
     text-align: center;
 }
 
