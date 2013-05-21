@@ -8,7 +8,7 @@ class Menu {
     $obj->load->helper('url');
     $menu = "<ul>";
       $menu .= "<li>"; $menu .= anchor("/home","Home"); $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/about", "About");
+      $menu .= "<li>"; $menu .= anchor("/about", "Over ons");
         $menu .= "<ul>";
           $menu .= "<li>"; $menu .= anchor("#", "A");
             $menu .= "<ul>";
@@ -28,11 +28,12 @@ class Menu {
           $menu .= "<li>"; $menu .= anchor("#", "C"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/news", "News");
+      $menu .= "<li>"; $menu .= anchor("/news", "Nieuwws");
         $menu .= "<ul>";
           $menu .= "<li>"; $menu .= anchor("/news/create", "Create"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
+      $menu .= "<li>"; $menu .= anchor("/faq","FAQ"); $menu .= "</li>";
       $menu .= "<li>"; $menu .= anchor("/logout","Uitloggen"); $menu .= "</li>";
     $menu .= "</ul>";
 
