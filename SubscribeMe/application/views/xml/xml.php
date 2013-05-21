@@ -5,9 +5,11 @@
     <div id="main">
         <?php 
         	$name = substr($xml_list['name'], 0, 100);
-        	$price = substr($xml_list['price'],0,100);
+        	$description = substr($xml_list['description'],0,100);
+            $datee = substr($xml_list['datee'],0,100);
         	echo $name; 
-        	echo $price;
+        	echo $description;
+            echo $datee;
 
         	
     	?>

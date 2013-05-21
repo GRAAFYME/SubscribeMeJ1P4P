@@ -16,11 +16,15 @@ class Xml_parser extends CI_Controller{
 
 	function getxml()
 	{
+		$this->load->library('menu');
+		$menu = new Menu;
+
+		$data['menu'] = $menu->show_menu();
 		$this->load->model('xmlparser_model');
 		$data['xml'] = $this->xmlparser_model->getxml();
 
-		$this->load->view('templates/header');
+		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('xml/xml',$data);
-		$this->load->view('templates/footer');
+		$this->load->view('templates/frontend/footer');
 	}
 }	
