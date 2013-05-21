@@ -9,13 +9,14 @@ class Xmlparser_model extends CI_Model {
 	public function insert()
 	{
 
-	$xml = simplexml_load_file("uploads/test.xml");
-	foreach($xml as $product)
+	$xml = simplexml_load_file("uploads/curiclium2012-2013.xml");
+	foreach($xml as $course)
 		{
 			
 		$data = array(
-		'name' => (string)$product->name,
-		'price' => $product->price
+		'name' => (string)$course->name,
+		'description' => (string)$course->description,
+		'datee' => (string)$course->datee
 		);
 		
 		$this->db->insert('xml', $data);	

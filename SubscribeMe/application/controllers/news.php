@@ -10,13 +10,13 @@ class News extends CI_Controller {
 	public function index()
 	{
 		
-			/*if(!$this->session->userdata('username'))
+			if(!$this->session->userdata('username'))
 			{
 
 				redirect('login');
 			}
 			else
-			{*/
+			{
 				$this->load->library('menu');
 				$menu = new Menu;
 
@@ -27,7 +27,7 @@ class News extends CI_Controller {
 				$this->load->view('templates/frontend/header', $data);
 				$this->load->view('news/index', $data);
 				$this->load->view('templates/frontend/footer');
-			//}
+			}
 		
 
 	}
