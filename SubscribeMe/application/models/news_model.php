@@ -43,12 +43,22 @@ class News_model extends CI_Model {
 		
 		$slug = url_title($this->input->post('title'), 'dash', TRUE);
 		
-		$data = array(
+		$data['news_item'] = $this->news_model->get_news($slug);
+
+		if (empty($data['news_item'])) // News item DOESN'T exitst!
+		{
+			$data = array(
 			'title' => $this->input->post('title'),
 			'slug' => $slug,
 			'text' => $this->input->post('text')
-		);
+			);
 		
-		return $this->db->insert('news', $data);
+			/*return */$this->db->insert('news', $data);
+			return "success";
+		}
+		else // News item DOES exitst!
+		{
+			return "error";
+		}	
 	}
 }

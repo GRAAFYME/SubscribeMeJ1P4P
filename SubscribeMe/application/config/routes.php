@@ -38,7 +38,7 @@
 |
 */
 
-	$route['default_controller'] = 'login';
+	$route['default_controller'] = 'pages/view';
 	$route['login'] = 'login';
 	$route['xml_parser'] = 'xml_parser';
 	$route['xml_parser/getxml'] ='xml_parser/getxml';
@@ -52,6 +52,11 @@
 	$route['login/validate_credentials'] = 'login/validate_credentials';
 	$route['news/(:any)'] = 'news/view/$1';
 	$route['news/create'] = 'news/create';
+	$route['faq'] = 'faq';
+	$route['faq/(:any)'] = 'faq/view/$1';
+	$route['faq/create'] = 'faq/create';
+	$route['home'] = 'home';
+	$route['home/create'] = 'home/create';
 
 
 	$route['welcome'] = 'welcome';
