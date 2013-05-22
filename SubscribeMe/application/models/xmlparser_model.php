@@ -4,13 +4,15 @@ class Xmlparser_model extends CI_Model {
 	{
 		$this->load->database();
 		$this->load->library('parser');
+		$this->load->helper('file');
 	}
 
 	public function insert()
-	{
-
-	$xml = simplexml_load_file("uploads/curiclium2012-2013.xml");
-	foreach($xml as $course)
+	{	
+		$data = get_filenames("uploads");
+		$file = end($data);
+		$xml = simplexml_load_file("uploads/".$file);
+		foreach($xml as $course)
 		{
 			
 		$data = array(
