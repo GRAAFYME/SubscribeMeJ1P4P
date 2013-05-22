@@ -2,16 +2,22 @@
 
 //class for xml parser just a test for now 
 class Xml_parser extends CI_Controller{
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('file');
+
+	}
 
 //this function loads the xml file and parses it into the $data which will be sent to the views
 	function index()
 	{
-
-	
-		$data['title'] = 'xml_parser';
-
+		$data = get_filenames("uploads");
+		$file['file'] = end($data);
+		$this->load->view('upload_success',$file);
 		$this->load->model('xmlparser_model');
-		$this->xmlparser_model->insert();	
+		$this->xmlparser_model->insert();
+
 	}
 
 	function getxml()

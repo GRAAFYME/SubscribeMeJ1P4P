@@ -7,7 +7,7 @@
 
 	<?php
 	echo form_open ('login/validate_credentials');
-	echo form_input('username', 'Username');
+	echo form_input('username', '', 'placeholder="Username", class="username"');
 	echo form_password('password','', 'placeholder="Password" class="password"' );
 	echo form_submit('submit','Login');
 	echo anchor('login/signup', 'Create Acount');
