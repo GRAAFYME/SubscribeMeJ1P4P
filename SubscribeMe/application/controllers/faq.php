@@ -1,48 +1,44 @@
 <?php
-class News extends CI_Controller {
+class Faq extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('news_model');		
+		$this->load->model('faq_model');		
 	}
 
 	public function index()
 	{
-	
-				$this->load->library('menu');
-				$menu = new Menu;
+		$this->load->library('menu');
+		$menu = new Menu;
 
-				$data['menu'] = $menu->show_menu();
-				$data['news'] = $this->news_model->get_news();
-				$data['title'] = 'News archive';
+		$data['menu'] = $menu->show_menu();
+		$data['faq'] = $this->faq_model->get_faq();
+		$data['title'] = 'FAQ';
 
-				$this->load->view('templates/frontend/header', $data);
-				$this->load->view('news/index', $data);
-				$this->load->view('templates/frontend/footer');
-			
-		
-
+		$this->load->view('templates/frontend/header', $data);
+		$this->load->view('faq/index', $data);
+		$this->load->view('templates/frontend/footer');
 	}
 
 	public function view($slug)
 	{
-		$data['news_item'] = $this->news_model->get_news($slug);
+		$data['faq_item'] = $this->faq_model->get_faq($slug);
 
-		if (empty($data['news_item'])) // News item DOESN'T exitst!
+		if (empty($data['faq_item'])) // FAQ item DOESN'T exitst!
 		{
 			show_404();
 		}
-		else // News item DOES exitst!
+		else // FAQ item DOES exitst!
 		{	
 			$this->load->library('menu');
 			$menu = new Menu;
 
 			$data['menu'] = $menu->show_menu();
-			$data['title'] = $data['news_item']['title'];
+			$data['title'] = $data['faq_item']['question'];
 
 			$this->load->view('templates/frontend/header', $data);
-			$this->load->view('news/view', $data);
+			$this->load->view('faq/view', $data);
 			$this->load->view('templates/frontend/footer');
 		}
 	}
@@ -56,35 +52,35 @@ class News extends CI_Controller {
 		$menu = new Menu;
 
 		$data['menu'] = $menu->show_menu();
-		$data['title'] = 'Create a news item';
+		$data['title'] = 'Create a FAQ item';
 		
-		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('text', 'Text', 'required');
+		$this->form_validation->set_rules('question', 'Question', 'required');
+		$this->form_validation->set_rules('answer', 'Answer', 'required');
 		
 		if ($this->form_validation->run() === FALSE) // Something went wrong!
 		{
 			$this->load->view('templates/frontend/header', $data);	
-			$this->load->view('admin/news/create');
+			$this->load->view('admin/faq/create');
 			$this->load->view('templates/frontend/footer');
 			
 		}
 		else // New news item succesfully created!
-		{
-			$return = $this->news_model->set_news();
+		{			
+			$return = $this->faq_model->set_faq();
 
 			if ($return == "error")
 			{
 				$this->load->view('templates/frontend/header', $data);	
-				$this->load->view('admin/news/create');
-				$this->load->view('admin/news/error');
+				$this->load->view('admin/faq/create');
+				$this->load->view('admin/faq/error');
 				$this->load->view('templates/frontend/footer');
 				// + error, title / slug in use
 			}
 			else
 			{			
 				$this->load->view('templates/frontend/header', $data);	
-				$this->load->view('admin/news/create');
-				$this->load->view('admin/news/success');
+				$this->load->view('admin/faq/create');
+				$this->load->view('admin/faq/success');
 				$this->load->view('templates/frontend/footer');
 			}
 		}

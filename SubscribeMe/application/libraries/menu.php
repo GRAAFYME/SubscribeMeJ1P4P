@@ -28,7 +28,7 @@ class Menu {
           $menu .= "<li>"; $menu .= anchor("#", "C"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/news", "Nieuwws");
+      $menu .= "<li>"; $menu .= anchor("/news", "Nieuws");
         $menu .= "<ul>";
           $menu .= "<li>"; $menu .= anchor("/news/create", "Create"); $menu .= "</li>";
         $menu .= "</ul>";
