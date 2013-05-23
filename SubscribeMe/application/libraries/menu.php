@@ -7,10 +7,10 @@ class Menu {
     $obj =& get_instance();
     $obj->load->helper('url');
     $menu = "<ul>";
-      $menu .= "<li>"; $menu .= anchor("/home","Home"); $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/about", "Over ons");
+      $menu .= "<li>"; $menu .= anchor("/","Home"); $menu .= "</li>";
+      $menu .= "<li>"; $menu .= anchor("/nieuws", "Nieuws");
         $menu .= "<ul>";
-          $menu .= "<li>"; $menu .= anchor("#", "A");
+          $menu .= "<li>"; $menu .= anchor("/nieuws/create", "Create"); $menu .= "</li>";
             $menu .= "<ul>";
               $menu .= "<li>"; $menu .= anchor("#", "A A"); 
                 $menu .= "<ul>";
@@ -28,13 +28,17 @@ class Menu {
           $menu .= "<li>"; $menu .= anchor("#", "C"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/news", "Nieuws");
+      $menu .= "<li>"; $menu .= anchor("/inschrijven", "Inschrijven");
         $menu .= "<ul>";
-          $menu .= "<li>"; $menu .= anchor("/news/create", "Create"); $menu .= "</li>";
+          $menu .= "<li>"; $menu .= anchor("#", "A"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
       $menu .= "<li>"; $menu .= anchor("/faq","FAQ"); $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/logout","Uitloggen"); $menu .= "</li>";
+      $menu .= "<li>"; $menu .= anchor("/profiel", "Profiel");
+        $menu .= "<ul>";
+          $menu .= "<li>"; $menu .= anchor("/uitloggen","Uitloggen"); $menu .= "</li>";
+        $menu .= "</ul>";
+      $menu .= "</li>";
     $menu .= "</ul>";
 
     return $menu;

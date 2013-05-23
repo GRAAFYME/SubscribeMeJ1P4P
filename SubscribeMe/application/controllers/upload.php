@@ -6,11 +6,19 @@ class Upload extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
+		$this->load->library('menu');
 	}
 
 	function index()
 	{
-		$this->load->view('upload_form',array('error'=>''));
+		$menu = new Menu;
+		
+		$data['menu'] = $menu->show_menu();
+		$data['title'] = 'Upload';
+
+		$this->load->view('templates/backend/header', $data);
+		$this->load->view('admin/upload/upload_form',array('error'=>''));
+		$this->load->view('templates/backend/footer');		
 	}
 
 	function do_upload()
@@ -20,11 +28,18 @@ class Upload extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
+		$menu = new Menu;
+		
+		$data['menu'] = $menu->show_menu();
+		$data['title'] = 'Upload';
+
 		if(!$this->upload->do_upload())
 		{
-			$error= array('error'=>$this->upload->display_error());
-
-			$this->load->view('upload_form', $error);
+			$error= array('error'=>$this->upload->display_errors());
+			
+			$this->load->view('templates/backend/header', $data);
+			$this->load->view('admin/upload/upload_form', $error);
+			$this->load->view('templates/backend/footer');	
 		}
 		else
 		{
@@ -32,8 +47,5 @@ class Upload extends CI_Controller {
 
 			redirect('xml_parser');
 		}
-
 	}
-
-
 }

@@ -7,6 +7,6 @@
         	echo $small        	
     	?>
     </div>
-    <p><a href="/news/<?php echo $news_item['slug'] ?>">Bekijk nieuwsbericht</a></p>
+    <p><a href="/nieuws/<?php echo $news_item['slug'] ?>">Bekijk nieuwsbericht</a></p>
 
 <?php endforeach ?>

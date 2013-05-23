@@ -4,25 +4,21 @@ class News extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('news_model');		
+		$this->load->model('news_model');
+		$this->load->library('menu');	
 	}
 
 	public function index()
 	{
-	
-				$this->load->library('menu');
-				$menu = new Menu;
+		$menu = new Menu;
 
-				$data['menu'] = $menu->show_menu();
-				$data['news'] = $this->news_model->get_news();
-				$data['title'] = 'News archive';
+		$data['menu'] = $menu->show_menu();
+		$data['news'] = $this->news_model->get_news();
+		$data['title'] = 'News archive';
 
-				$this->load->view('templates/frontend/header', $data);
-				$this->load->view('news/index', $data);
-				$this->load->view('templates/frontend/footer');
-			
-		
-
+		$this->load->view('templates/frontend/header', $data);
+		$this->load->view('news/index', $data);
+		$this->load->view('templates/frontend/footer');
 	}
 
 	public function view($slug)
@@ -35,7 +31,6 @@ class News extends CI_Controller {
 		}
 		else // News item DOES exitst!
 		{	
-			$this->load->library('menu');
 			$menu = new Menu;
 
 			$data['menu'] = $menu->show_menu();
@@ -52,7 +47,6 @@ class News extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->library('menu');
 		$menu = new Menu;
 
 		$data['menu'] = $menu->show_menu();
@@ -63,9 +57,9 @@ class News extends CI_Controller {
 		
 		if ($this->form_validation->run() === FALSE) // Something went wrong!
 		{
-			$this->load->view('templates/frontend/header', $data);	
+			$this->load->view('templates/backend/header', $data);	
 			$this->load->view('admin/news/create');
-			$this->load->view('templates/frontend/footer');
+			$this->load->view('templates/backend/footer');
 			
 		}
 		else // New news item succesfully created!
@@ -74,18 +68,18 @@ class News extends CI_Controller {
 
 			if ($return == "error")
 			{
-				$this->load->view('templates/frontend/header', $data);	
+				$this->load->view('templates/backend/header', $data);	
 				$this->load->view('admin/news/create');
 				$this->load->view('admin/news/error');
-				$this->load->view('templates/frontend/footer');
+				$this->load->view('templates/backend/footer');
 				// + error, title / slug in use
 			}
 			else
 			{			
-				$this->load->view('templates/frontend/header', $data);	
+				$this->load->view('templates/backend/header', $data);	
 				$this->load->view('admin/news/create');
 				$this->load->view('admin/news/success');
-				$this->load->view('templates/frontend/footer');
+				$this->load->view('templates/backend/footer');
 			}
 		}
 	}
