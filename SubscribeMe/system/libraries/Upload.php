@@ -407,7 +407,7 @@ class CI_Upload {
 		{
 			if ( ! file_exists($path.$filename.$i.$this->file_ext))
 			{
-				$new_filename = $filename.$i.$this->file_ext;
+				$new_filename = $filename."_V".$i.$this->file_ext;
 				break;
 			}
 		}

@@ -16,13 +16,13 @@ class Upload extends CI_Controller {
 	function do_upload()
 	{
 		$config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'xml';
+		$config['allowed_types'] = 'xml|jpg';
 
 		$this->load->library('upload', $config);
 
 		if(!$this->upload->do_upload())
 		{
-			$error= array('error'=>$this->upload->display_error());
+			$error = array('error'=>$this->upload->display_errors());
 
 			$this->load->view('upload_form', $error);
 		}
