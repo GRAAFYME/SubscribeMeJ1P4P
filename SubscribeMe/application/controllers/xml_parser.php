@@ -6,7 +6,7 @@ class Xml_parser extends CI_Controller{
 	{
 		parent::__construct();
 		$this->load->helper('file');
-
+		$this->load->library('menu');
 	}
 
 //this function loads the xml file and parses it into the $data which will be sent to the views
@@ -14,10 +14,18 @@ class Xml_parser extends CI_Controller{
 	{
 		$data = get_filenames("uploads");
 		$file['file'] = end($data);
-		$this->load->view('upload_success',$file);
+
+		$menu = new Menu;
+		
+		$data['menu'] = $menu->show_menu();
+		$data['title'] = 'XML';
+
+		$this->load->view('templates/backend/header', $data);
+		$this->load->view('admin/upload/upload_success', $file);
+		$this->load->view('templates/backend/footer');		
+		
 		$this->load->model('xmlparser_model');
 		$this->xmlparser_model->insert();
-
 	}
 //shows all the data from the xml table inside our database. 
 	function getxml()
@@ -30,7 +38,7 @@ class Xml_parser extends CI_Controller{
 		$data['xml'] = $this->xmlparser_model->getxml();
 
 		$this->load->view('templates/frontend/header',$data);
-		$this->load->view('xml/xml',$data);
+		$this->load->view('admin/xml/xml',$data);
 		$this->load->view('templates/frontend/footer');
 	}
 }	

@@ -16,7 +16,7 @@
 			</div>
 			<div id="searchbar">
 				<div id="search"><!-- Start Search -->
-					<p>&nbsp;&nbsp;FRONTEND...</p><!-- Temporary until we have a working search bar -->
+					<p>&nbsp;&nbsp;BACKEND...</p><!-- Temporary until we have a working search bar -->
 				</div><!-- End Search -->
 			</div>
 		</div><!-- End Header -->

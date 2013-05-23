@@ -4,12 +4,12 @@ class Faq extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('faq_model');		
+		$this->load->model('faq_model');
+		$this->load->library('menu');
 	}
 
 	public function index()
 	{
-		$this->load->library('menu');
 		$menu = new Menu;
 
 		$data['menu'] = $menu->show_menu();
@@ -31,7 +31,6 @@ class Faq extends CI_Controller {
 		}
 		else // FAQ item DOES exitst!
 		{	
-			$this->load->library('menu');
 			$menu = new Menu;
 
 			$data['menu'] = $menu->show_menu();
@@ -48,7 +47,6 @@ class Faq extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$this->load->library('menu');
 		$menu = new Menu;
 
 		$data['menu'] = $menu->show_menu();
@@ -59,9 +57,9 @@ class Faq extends CI_Controller {
 		
 		if ($this->form_validation->run() === FALSE) // Something went wrong!
 		{
-			$this->load->view('templates/frontend/header', $data);	
+			$this->load->view('templates/backend/header', $data);	
 			$this->load->view('admin/faq/create');
-			$this->load->view('templates/frontend/footer');
+			$this->load->view('templates/backend/footer');
 			
 		}
 		else // New news item succesfully created!
@@ -70,18 +68,18 @@ class Faq extends CI_Controller {
 
 			if ($return == "error")
 			{
-				$this->load->view('templates/frontend/header', $data);	
+				$this->load->view('templates/backend/header', $data);	
 				$this->load->view('admin/faq/create');
 				$this->load->view('admin/faq/error');
-				$this->load->view('templates/frontend/footer');
+				$this->load->view('templates/backend/footer');
 				// + error, title / slug in use
 			}
 			else
 			{			
-				$this->load->view('templates/frontend/header', $data);	
+				$this->load->view('templates/backend/header', $data);	
 				$this->load->view('admin/faq/create');
 				$this->load->view('admin/faq/success');
-				$this->load->view('templates/frontend/footer');
+				$this->load->view('templates/backend/footer');
 			}
 		}
 	}

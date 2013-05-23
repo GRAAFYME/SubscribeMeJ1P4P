@@ -1,20 +1,18 @@
 <?php
-class Home extends CI_Controller {
+class Subscribe extends CI_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('page_model');
-		$this->load->model('news_model');
 		$this->load->library('menu');	
 	}
 
 	public function index()
 	{
-		$data['home_item'] = $this->page_model->get_home();
-		$data['news'] = $this->news_model->latest_news();
+		$data['subscribe_item'] = $this->page_model->get_subscribe();
 
-		if (empty($data['home_item'])) // News item DOESN'T exitst!
+		if (empty($data['subscribe_item'])) // News item DOESN'T exitst!
 		{
 			show_404();
 		}
@@ -23,10 +21,10 @@ class Home extends CI_Controller {
 			$menu = new Menu;
 
 			$data['menu'] = $menu->show_menu();
-			$data['title'] = $data['home_item']['title'];
+			$data['title'] = $data['subscribe_item']['title'];
 
 			$this->load->view('templates/frontend/header', $data);
-			$this->load->view('home/index', $data);
+			$this->load->view('subscribe/index', $data);
 			$this->load->view('templates/frontend/footer');
 		}
 	}
