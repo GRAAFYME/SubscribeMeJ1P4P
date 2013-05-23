@@ -1,4 +1,6 @@
 <?php
+
+// constructor, loads the database, the parser library and the file helper. 
 class Xmlparser_model extends CI_Model {
 	public function __construct()
 	{
@@ -6,7 +8,7 @@ class Xmlparser_model extends CI_Model {
 		$this->load->library('parser');
 		$this->load->helper('file');
 	}
-
+//Gets the info from the latest uploaded file, and stores it into the xml database. 
 	public function insert()
 	{	
 		$data = get_filenames("uploads");
@@ -25,7 +27,7 @@ class Xmlparser_model extends CI_Model {
 		}
 		
 	}
-
+//Gets all the information from the xml table. 
 	public function getxml()
 	{
 		$query =$this->db->get('xml');
