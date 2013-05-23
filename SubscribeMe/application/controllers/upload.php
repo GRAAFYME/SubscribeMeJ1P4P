@@ -35,17 +35,16 @@ class Upload extends CI_Controller {
 
 		if(!$this->upload->do_upload())
 		{
-<<<<<<< HEAD
+
 			$error = array('error'=>$this->upload->display_errors());
 
 			$this->load->view('upload_form', $error);
-=======
+			
 			$error= array('error'=>$this->upload->display_errors());
 			
 			$this->load->view('templates/backend/header', $data);
 			$this->load->view('admin/upload/upload_form', $error);
 			$this->load->view('templates/backend/footer');	
->>>>>>> 1216d6e66988b99e266d0066e4c46898bc790ef6
 		}
 		else
 		{
