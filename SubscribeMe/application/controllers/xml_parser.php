@@ -28,7 +28,7 @@ class Xml_parser extends CI_Controller{
 		$this->xmlparser_model->insert();
 	}
 //shows all the data from the xml table inside our database. 
-	function getxml()
+	/*function getxml()
 	{
 		$this->load->library('menu');
 		$menu = new Menu;
@@ -41,4 +41,5 @@ class Xml_parser extends CI_Controller{
 		$this->load->view('admin/xml/xml',$data);
 		$this->load->view('templates/frontend/footer');
 	}
+	*/
 }	

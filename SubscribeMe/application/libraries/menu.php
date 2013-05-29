@@ -28,9 +28,12 @@ class Menu {
           $menu .= "<li>"; $menu .= anchor("#", "C"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
-      $menu .= "<li>"; $menu .= anchor("/inschrijven", "Inschrijven");
+      $menu .= "<li>"; $menu .= anchor("/inschrijven/getall", "Inschrijven");
         $menu .= "<ul>";
-          $menu .= "<li>"; $menu .= anchor("#", "A"); $menu .= "</li>";
+          $menu .= "<li>"; $menu .= anchor("/inschrijven/get/1", "Jaar 1"); $menu .= "</li>";
+          $menu .= "<li>"; $menu .= anchor("/inschrijven/get/2", "Jaar 2"); $menu .= "</li>";
+          $menu .= "<li>"; $menu .= anchor("/inschrijven/get/3", "Jaar 3"); $menu .= "</li>";
+          $menu .= "<li>"; $menu .= anchor("/inschrijven/get/4", "Jaar 4"); $menu .= "</li>";
         $menu .= "</ul>";
       $menu .= "</li>";
       $menu .= "<li>"; $menu .= anchor("/faq","FAQ"); $menu .= "</li>";

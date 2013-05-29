@@ -7,6 +7,7 @@ class Xmlparser_model extends CI_Model {
 		$this->load->database();
 		$this->load->library('parser');
 		$this->load->helper('file');
+		$this->load->library('session');
 	}
 //Gets the info from the latest uploaded file, and stores it into the xml database. 
 	public function insert()
@@ -20,17 +21,12 @@ class Xmlparser_model extends CI_Model {
 		$data = array(
 		'name' => (string)$course->name,
 		'description' => (string)$course->description,
-		'datee' => (string)$course->datee
+		'datee' => (string)$course->datee,
+		'year' => (int)$course->year
 		);
 		
 		$this->db->insert('xml', $data);	
 		}
 		
-	}
-//Gets all the information from the xml table. 
-	public function getxml()
-	{
-		$query =$this->db->get('xml');
-		return $query->result_array();
 	}
 }

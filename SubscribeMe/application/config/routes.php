@@ -45,6 +45,11 @@
 	$route['nieuws/create'] = 'news/create';
 
 	$route['inschrijven'] = 'subscribe';
+	$route['inschrijven/get/(:any)'] = 'subscribe/get/$1';
+	$route['inschrijven/getall'] = 'subscribe/getall';
+	$route['inschrijven/vak/(:any)'] = 'subscribe/course/$1';
+	$route['inschrijven/opgeven'] = 'subscribe/signup';
+	$route['inschrijven/opgeven/(:any)'] = 'subscribe/signup/$1';
 
 	$route['faq'] = 'faq';
 	$route['faq/(:any)'] = 'faq/view/$1';
