@@ -1,16 +1,10 @@
-<?php
-
-class Logout extends CI_Controller 
-{
-	function __construct()
-	{
-		parent::__construct();
-	}
+<?php 
+//this function kills the current session and redirects the user to the login controller
+class Logout extends My_Controller {
 
 	function index()
 	{
-			$this->session->unset_userdata('logged_in');
-			$this->session->sess_destroy();
-			redirect('login');
+		$this->session->sess_destroy();
+		redirect('login');
 	}
 }

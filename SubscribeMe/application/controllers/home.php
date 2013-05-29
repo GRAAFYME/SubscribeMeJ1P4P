@@ -1,5 +1,5 @@
-<?php
-class Home extends CI_Controller {
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); 
+class Home extends My_Controller {
 
 	public function __construct()
 	{

@@ -1,5 +1,5 @@
 <?php
-class News extends CI_Controller {
+class News extends MY_Controller {
 
 	public function __construct()
 	{
