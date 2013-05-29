@@ -34,3 +34,4 @@
 	</li>
 </ul>
 </div>
+<?php print_r($this->session->userdata); ?>
