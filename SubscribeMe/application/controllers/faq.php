@@ -1,5 +1,5 @@
-<?php
-class Faq extends CI_Controller {
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Faq extends MY_Controller {
 
 	public function __construct()
 	{

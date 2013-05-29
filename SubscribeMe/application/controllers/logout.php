@@ -1,6 +1,6 @@
 <?php 
 //this function kills the current session and redirects the user to the login controller
-class Logout extends CI_Controller {
+class Logout extends My_Controller {
 
 	function index()
 	{

@@ -1,7 +1,7 @@
 <?php
 
 //class for xml parser just a test for now 
-class Xml_parser extends CI_Controller{
+class Xml_parser extends MY_Controller{
 	function __construct()
 	{
 		parent::__construct();
