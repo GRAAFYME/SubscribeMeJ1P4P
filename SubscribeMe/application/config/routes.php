@@ -66,7 +66,6 @@
 	$route['xml_parser/getxml'] ='xml_parser/getxml';
 
 	$route['login'] = 'login';
-	$route['verifylogin'] = 'verifylogin';
 	$route['login/signup'] = 'login/signup';
 	$route['login/create_member'] = 'login/create_member';
 	$route['login/validate_credentials'] = 'login/validate_credentials';
