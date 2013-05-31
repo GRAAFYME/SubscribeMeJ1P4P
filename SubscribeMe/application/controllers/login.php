@@ -44,7 +44,7 @@ class Login extends CI_Controller {
 					'is_logged_in' => true
 					);
 				$this->session->set_userdata($data);
-				redirect('news');
+				redirect('home');
 			}
 			else // wachtwoord onjuist
 			{
@@ -94,7 +94,5 @@ class Login extends CI_Controller {
 				$this->load->view('templates/login/footer');
 			}
 		}
-
 	}
-
 }
