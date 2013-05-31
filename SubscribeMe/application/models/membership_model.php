@@ -43,6 +43,19 @@ class Membership_model extends CI_Model {
 			}
 		}
 	}
+
+	function getrole() {
+		$admincheck = explode('_', $this->input->post('username'));
+		if($admincheck[0] == "admin")
+		{
+			return "admin";
+		}
+		else
+		{
+			// get role from ldap.
+			return "student";
+		}
+	}
 	//stores the user input in the users table , the password will be hashed into the database
 	function create_member() {
 

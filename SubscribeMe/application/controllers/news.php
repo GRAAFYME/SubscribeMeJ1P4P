@@ -43,44 +43,51 @@ class News extends MY_Controller {
 	}
 
 	public function create()
-	{				
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+	{	
+		if ($this->session->userdata('role') == "admin")
+		{		
+			$this->load->helper('form');
+			$this->load->library('form_validation');
 
-		$menu = new Menu;
+			$menu = new Menu;
 
-		$data['menu'] = $menu->show_menu();
-		$data['title'] = 'Create a news item';
-		
-		$this->form_validation->set_rules('title', 'Title', 'required');
-		$this->form_validation->set_rules('text', 'Text', 'required');
-		
-		if ($this->form_validation->run() === FALSE) // Something went wrong!
-		{
-			$this->load->view('templates/backend/header', $data);	
-			$this->load->view('admin/news/create');
-			$this->load->view('templates/backend/footer');
+			$data['menu'] = $menu->show_menu();
+			$data['title'] = 'Create a news item';
 			
-		}
-		else // New news item succesfully created!
-		{
-			$return = $this->news_model->set_news();
-
-			if ($return == "error")
+			$this->form_validation->set_rules('title', 'Title', 'required');
+			$this->form_validation->set_rules('text', 'Text', 'required');
+			
+			if ($this->form_validation->run() === FALSE) // Something went wrong!
 			{
 				$this->load->view('templates/backend/header', $data);	
 				$this->load->view('admin/news/create');
-				$this->load->view('admin/news/error');
 				$this->load->view('templates/backend/footer');
-				// + error, title / slug in use
+				
 			}
-			else
-			{			
-				$this->load->view('templates/backend/header', $data);	
-				$this->load->view('admin/news/create');
-				$this->load->view('admin/news/success');
-				$this->load->view('templates/backend/footer');
+			else // New news item succesfully created!
+			{
+				$return = $this->news_model->set_news();
+
+				if ($return == "error")
+				{
+					$this->load->view('templates/backend/header', $data);	
+					$this->load->view('admin/news/create');
+					$this->load->view('admin/news/error');
+					$this->load->view('templates/backend/footer');
+					// + error, title / slug in use
+				}
+				else
+				{			
+					$this->load->view('templates/backend/header', $data);	
+					$this->load->view('admin/news/create');
+					$this->load->view('admin/news/success');
+					$this->load->view('templates/backend/footer');
+				}
 			}
+		}
+		else
+		{
+			redirect('home');
 		}
 	}
 }
