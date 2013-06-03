@@ -51,8 +51,8 @@ class Subscribe extends MY_Controller {
 
  	public function signup($id)
  	{
- 	  $menu = new Menu;
- 	  $data['menu'] = $menu->show_menu();
+ 	  $dmenu = new DMenu;
+ 	  $data['menu'] = $dmenu->show_menu();
  	  $this->subscribe_model ->signup($id);
 
  	  $this->load->view('templates/frontend/header', $data);

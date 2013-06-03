@@ -12,7 +12,7 @@ class Faq_model extends CI_Model {
 		{
 			$this->db->select("*");
 			$this->db->from("faq");
-			$this->db->order_by("id", "desc");
+			$this->db->order_by("question", "asc");
 			$query = $this->db->get();
 			return $query->result_array();
 		}
