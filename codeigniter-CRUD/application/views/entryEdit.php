@@ -31,7 +31,7 @@
             </tr>
             <tr>
                 <td valign="top">Content<span style="color:red;">*</span></td>
-                <td><textarea id="name" name="content" rows ="10" cols="70" value="<?php echo $this->form_validation->content; ?>" ></textarea>
+                <td><textarea id="content" name="content" wrap = "hard" rows ="10" cols="70" value="<?php echo $this->form_validation->content; ?>" ><?php echo $this->form_validation->content; ?></textarea>
                 </td>
             </tr>
             <!-- <tr>
