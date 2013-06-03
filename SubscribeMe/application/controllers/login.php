@@ -41,13 +41,21 @@ class Login extends CI_Controller {
 			{
 				$role = $this->membership_model->getrole();
 
-				$data = array(
-					'username' => $this->input->post('username'),
-					'role' => $role,
-					'is_logged_in' => true
-					);
-				$this->session->set_userdata($data);
-				redirect('home');
+				// if role is guest destroy sess
+				if($role != "guest")
+				{
+					$data = array(
+						'username' => $this->input->post('username'),
+						'role' => $role,
+						'is_logged_in' => true
+						);
+					$this->session->set_userdata($data);
+					redirect('home');
+				}
+				else
+				{
+					redirect('uitloggen');
+				}
 			}
 			else // wachtwoord onjuist
 			{

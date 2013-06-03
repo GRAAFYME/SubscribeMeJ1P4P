@@ -59,6 +59,7 @@ class Subscribe extends MY_Controller {
  	  $this->load->view('courses/signup');
  	  $this->load->view('templates/frontend/footer');
  	}
+ 	
  	public function getperiod($year, $period)
  	{
  		$dmenu = new Dmenu;
