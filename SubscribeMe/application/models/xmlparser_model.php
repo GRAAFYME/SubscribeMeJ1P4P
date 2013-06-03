@@ -10,7 +10,7 @@ class Xmlparser_model extends CI_Model {
 		$this->load->library('session');
 	}
 //Gets the info from the latest uploaded file, and stores it into the xml database. 
-	public function insert()
+	/*public function insert()
 	{	
 		$data = get_filenames("uploads");
 		$file = end($data);
@@ -28,5 +28,49 @@ class Xmlparser_model extends CI_Model {
 		$this->db->insert('xml', $data);	
 		}
 		
+	}
+	*/
+
+	public function insert()
+	{
+		$data = get_filenames("uploads");
+		$file = end($data);
+		$xml = simplexml_load_file("uploads/".$file);
+		foreach($xml as $course)
+		{
+			$query = $course->name;
+			$this->db->select('*');
+			$this->db->from('courses');
+			$this->db->where('short_name', (string)$query);
+			$query = $this->db->get();
+
+
+			if($query->num_rows() > 0)
+			{
+				$data = array(
+					'course_name' => (string) $course->description,
+					'year' => (int)$course->year,
+					'period' => (int)$course->period,
+					'test' => (string)$course->toets
+					);
+				$this->db->insert('tests', $data);
+			}
+			else
+			{
+				$courses = array (
+					'short_name' => (string) $course->name,
+					'full_name' => (string)$course->description
+					);
+				 $this->db->insert('courses', $courses);
+
+				 $data = array(
+					'course_name' => (string) $course->description,
+					'year' => (int)$course->year,
+					'period' => (int)$course->period,
+					'test' => (string)$course->toets
+					);
+				$this->db->insert('tests', $data);
+			}
+		}
 	}
 }
