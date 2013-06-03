@@ -67,7 +67,7 @@ class Subscribe extends MY_Controller {
  		$data['xml'] = $this->subscribe_model->getperiod($year, $period);
 
  		$this->load->view('templates/frontend/header', $data);
- 		$this->load->view('courses/course', $data);
+ 		$this->load->view('courses/courses', $data);
  		$this->load->view('templates/frontend/footer');
  	}
  }
