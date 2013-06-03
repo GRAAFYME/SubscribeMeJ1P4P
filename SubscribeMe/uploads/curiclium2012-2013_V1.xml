@@ -14,4 +14,11 @@
 	<period> 3 </period>
 	<toets> Deeltoets 2 </toets>
    </course>  
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>1</year>
+	<period> 3 </period>
+	<toets> Deeltoets 2 </toets>
+   </course>  
 </courses>

@@ -51,12 +51,22 @@ class Subscribe extends MY_Controller {
 
  	public function signup($id)
  	{
- 	  $menu = new Menu;
- 	  $data['menu'] = $menu->show_menu();
+ 	  $dmenu = new Dmenu;
+ 	  $data['menu'] = $dmenu->show_menu();
  	  $this->subscribe_model ->signup($id);
 
  	  $this->load->view('templates/frontend/header', $data);
  	  $this->load->view('courses/signup');
  	  $this->load->view('templates/frontend/footer');
+ 	}
+ 	public function getperiod($year, $period)
+ 	{
+ 		$dmenu = new Dmenu;
+ 		$data['menu'] = $dmenu->show_menu();
+ 		$data['xml'] = $this->subscribe_model->getperiod($year, $period);
+
+ 		$this->load->view('templates/frontend/header', $data);
+ 		$this->load->view('courses/course', $data);
+ 		$this->load->view('templates/frontend/footer');
  	}
  }

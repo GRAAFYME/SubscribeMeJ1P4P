@@ -50,14 +50,18 @@
 	$route['inschrijven/vak/(:any)'] = 'subscribe/course/$1';
 	$route['inschrijven/opgeven'] = 'subscribe/signup';
 	$route['inschrijven/opgeven/(:any)'] = 'subscribe/signup/$1';
+	$route['inschrijven/getperiod/(:num)/(:any)'] = 'subscribe/getperiod/$1/$2';
 
 	$route['faq'] = 'faq';
 	$route['faq/(:any)'] = 'faq/view/$1';
 	$route['faq/create'] = 'faq/create';
 
 	/* Profile */
+	$route['profiel'] = 'profile';
 
 	/* CMS */
+	$route['mijn-inschrijvingen'] = 'my_enrollment';
+	$route['mijn-inschrijvingen/uitschrijven/(:any)'] = 'my_enrollment/unroll/$1';
 
 	$route['upload'] = 'upload';
 	$route['upload/do_upload'] = 'upload/do_upload';

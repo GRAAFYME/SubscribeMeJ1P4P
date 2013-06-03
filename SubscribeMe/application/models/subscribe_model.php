@@ -42,4 +42,14 @@ class Subscribe_model extends CI_Model {
 		$this->db->insert('signups', $data);
 
 	}
+
+	public function getperiod($year, $period)
+	{
+		$this->db->select('*');
+		$this->db->from('tests');
+		$this->db->where(array('year' => $year));
+		$this->db->where(array('period' => $period));
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 }
