@@ -6,7 +6,8 @@ class Home extends MY_Controller {
 		parent::__construct();
 		$this->load->model('page_model');
 		$this->load->model('news_model');
-		$this->load->library('menu');	
+		$this->load->library('dmenu');
+		$this->load->library('amenu');	
 	}
 
 	public function index()
@@ -20,9 +21,9 @@ class Home extends MY_Controller {
 		}
 		else // News item DOES exitst!
 		{	
-			$menu = new Menu;
+			$dmenu = new Dmenu;
 
-			$data['menu'] = $menu->show_menu();
+			$data['menu'] = $dmenu->show_menu();
 			$data['title'] = $data['home_item']['title'];
 
 			$this->load->view('templates/frontend/header', $data);

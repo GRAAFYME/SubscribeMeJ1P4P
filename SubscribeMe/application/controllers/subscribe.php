@@ -5,15 +5,16 @@ class Subscribe extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('file');
-		$this->load->library('menu');
+		$this->load->library('dmenu');
+		$this->load->library('amenu');
 		$this->load->model('xmlparser_model');
 		$this->load->model('subscribe_model');
 	}
 
 	public function getall()
 	{
-		$menu = new Menu;
-		$data['menu'] = $menu->show_menu();
+		$dmenu = new Dmenu;
+		$data['menu'] = $dmenu->show_menu();
 		$data['xml'] = $this->subscribe_model->getall();
 
 		$this->load->view('templates/frontend/header',$data);
@@ -25,8 +26,8 @@ class Subscribe extends MY_Controller {
  	{
 
  		
-		$menu = new Menu;
-		$data['menu'] = $menu->show_menu();
+		$dmenu = new Dmenu;
+		$data['menu'] = $dmenu->show_menu();
  		
 
  		$data['xml'] = $this->subscribe_model->getxml($year);
@@ -38,8 +39,8 @@ class Subscribe extends MY_Controller {
 
  	public function course($id)
  	{
- 		$menu = new Menu;
-		$data['menu'] = $menu->show_menu();
+ 		$dmenu = new Dmenu;
+		$data['menu'] = $dmenu->show_menu();
 
 		$data['xml'] = $this->subscribe_model->getcourse($id);
 

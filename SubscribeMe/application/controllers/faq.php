@@ -5,14 +5,15 @@ class Faq extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('faq_model');
-		$this->load->library('menu');
+		$this->load->library('dmenu');
+		$this->load->library('amenu');
 	}
 
 	public function index()
 	{
-		$menu = new Menu;
+		$dmenu = new Dmenu;
 
-		$data['menu'] = $menu->show_menu();
+		$data['menu'] = $dmenu->show_menu();
 		$data['faq'] = $this->faq_model->get_faq();
 		$data['title'] = 'FAQ';
 
@@ -31,9 +32,9 @@ class Faq extends MY_Controller {
 		}
 		else // FAQ item DOES exitst!
 		{	
-			$menu = new Menu;
+			$dmenu = new Dmenu;
 
-			$data['menu'] = $menu->show_menu();
+			$data['menu'] = $dmenu->show_menu();
 			$data['title'] = $data['faq_item']['question'];
 
 			$this->load->view('templates/frontend/header', $data);
@@ -47,9 +48,9 @@ class Faq extends MY_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
-		$menu = new Menu;
+		$amenu = new Amenu;
 
-		$data['menu'] = $menu->show_menu();
+		$data['menu'] = $amenu->show_menu();
 		$data['title'] = 'Create a FAQ item';
 		
 		$this->form_validation->set_rules('question', 'Question', 'required');

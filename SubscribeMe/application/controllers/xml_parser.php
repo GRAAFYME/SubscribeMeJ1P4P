@@ -6,7 +6,7 @@ class Xml_parser extends MY_Controller{
 	{
 		parent::__construct();
 		$this->load->helper('file');
-		$this->load->library('menu');
+		$this->load->library('dmenu');
 	}
 
 //this function loads the xml file and parses it into the $data which will be sent to the views
@@ -15,9 +15,9 @@ class Xml_parser extends MY_Controller{
 		$data = get_filenames("uploads");
 		$file['file'] = end($data);
 
-		$menu = new Menu;
+		$dmenu = new Dmenu;
 		
-		$data['menu'] = $menu->show_menu();
+		$data['menu'] = $dmenu->show_menu();
 		$data['title'] = 'XML';
 
 		$this->load->view('templates/backend/header', $data);

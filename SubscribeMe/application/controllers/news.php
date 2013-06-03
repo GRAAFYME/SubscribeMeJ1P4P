@@ -5,14 +5,15 @@ class News extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('news_model');
-		$this->load->library('menu');	
+		$this->load->library('dmenu');	
+		$this->load->library('amenu');
 	}
 
 	public function index()
 	{
-		$menu = new Menu;
+		$dmenu = new Dmenu;
 
-		$data['menu'] = $menu->show_menu();
+		$data['menu'] = $dmenu->show_menu();
 		$data['news'] = $this->news_model->get_news();
 		$data['title'] = 'News archive';
 
@@ -31,9 +32,9 @@ class News extends MY_Controller {
 		}
 		else // News item DOES exitst!
 		{	
-			$menu = new Menu;
+			$dmenu = new Dmenu;
 
-			$data['menu'] = $menu->show_menu();
+			$data['menu'] = $dmenu->show_menu();
 			$data['title'] = $data['news_item']['title'];
 
 			$this->load->view('templates/frontend/header', $data);
@@ -49,9 +50,9 @@ class News extends MY_Controller {
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 
-			$menu = new Menu;
+			$amenu = new Amenu;
 
-			$data['menu'] = $menu->show_menu();
+			$data['menu'] = $amenu->show_menu();
 			$data['title'] = 'Create a news item';
 			
 			$this->form_validation->set_rules('title', 'Title', 'required');

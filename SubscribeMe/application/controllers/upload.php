@@ -6,14 +6,14 @@ class Upload extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->library('menu');
+		$this->load->library('dmenu');
 	}
 
 	function index()
 	{
-		$menu = new Menu;
+		$dmenu = new Dmenu;
 		
-		$data['menu'] = $menu->show_menu();
+		$data['menu'] = $dmenu->show_menu();
 		$data['title'] = 'Upload';
 
 		$this->load->view('templates/backend/header', $data);
@@ -28,9 +28,9 @@ class Upload extends MY_Controller {
 
 		$this->load->library('upload', $config);
 
-		$menu = new Menu;
+		$dmenu = new Dmenu;
 		
-		$data['menu'] = $menu->show_menu();
+		$data['menu'] = $dmenu->show_menu();
 		$data['title'] = 'Upload';
 
 		if(!$this->upload->do_upload())
