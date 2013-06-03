@@ -42,7 +42,7 @@ class Entry extends CI_Controller {
         $this->table->set_heading('id', 'Title', 'Content', 'Date');
         $i = 0 + $offset;
         foreach ($entries as $entry){
-        	$this->table->add_row(++$i, $entry->title, $entry->content, $entry->date,
+        	$this->table->add_row($entry->id, $entry->title, $entry->content, $entry->date,
         		anchor('entry/view/'.$entry->id,'view', array('class'=>'view')).' '.
         		anchor('entry/update/'.$entry->id, 'update', array('class'=>'update')).' '.
         		anchor('entry/delete/'.$entry->id, 'delete', array('class'=>'delete', 'onclick'=>"return confirm('Are you sure you want to delete this entry?')"))
@@ -98,9 +98,9 @@ class Entry extends CI_Controller {
 			//set user message
 			$data['message'] = '<div class="success">add new entry success</div>';
 		// }
-
+		redirect();
 		//load view
-		$this->load->view('entryEdit', $data);
+		// $this->load->view('entryEdit', $data);
 	}
 
 	function view($id) {
@@ -129,7 +129,7 @@ class Entry extends CI_Controller {
 		//set common properties
 		$data['title'] = 'Update entry';
 		$data['message'] = '';
-		$data['action'] = site_url('entry/updateEntry');
+		$data['action'] = site_url('entry/updateEntry/'.$id);
 		$data['link_back'] = anchor('entry/index/','Back to list of entries', array('class'=>'back'));
 
 		//load view
@@ -151,7 +151,7 @@ class Entry extends CI_Controller {
 		// 	$data['message'] = 'nope';
 		// }else{
 			//save data
-			$id = $this->input->post('id');
+			$id = $this->uri->segment(3);
 			// $entry = array('title' => $this->input->post('title'),
 			// 				'content' => $this->input->post('content'));
 			$this->EntryModel->update($id);
@@ -159,9 +159,10 @@ class Entry extends CI_Controller {
 			//set user message
 			$data['message'] = '<div class="success">update entry success</div>';
 		// }
+			redirect();
 
 		//load view
-		$this->load->view('entryEdit', $data);
+		// $this->load->view('entryEdit', $data);
 	}
 
 	function delete($id){
