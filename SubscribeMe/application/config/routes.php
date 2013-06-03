@@ -62,6 +62,7 @@
 	/* CMS */
 	$route['mijn-inschrijvingen'] = 'my_enrollment';
 	$route['mijn-inschrijvingen/uitschrijven/(:any)'] = 'my_enrollment/unroll/$1';
+	$route['vakken'] = 'getsignups';
 
 	$route['upload'] = 'upload';
 	$route['upload/do_upload'] = 'upload/do_upload';
