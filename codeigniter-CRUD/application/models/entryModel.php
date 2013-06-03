@@ -34,8 +34,8 @@ class EntryModel extends CI_Model {
 		$entry = array('title' => $this->input->post('title'),
 						'content' => $this->input->post('content'));
 		$this->db->where('id', $id);
-		$this->db->set('tbl_entry', $entry);
-		$this->db->insert('tbl_entry');
+		$this->db->update('tbl_entry', $entry);
+		// $this->db->insert('tbl_entry');
 	}
 	//delete entry by id
 	function delete($id, $entry){
