@@ -13,10 +13,11 @@ class Profile extends MY_Controller {
 			$dmenu = new Dmenu;
 
 			$data['menu'] = $dmenu->show_menu();
-			$data['title'] = "profiel";
+			$data['title'] = ucfirst($this->session->userdata('username'));
+			$data['username'] = ucfirst($this->session->userdata('username'));
 
 			$this->load->view('templates/frontend/header', $data);
-			$this->load->view('profile/index');
+			$this->load->view('profile/index', $data);
 			$this->load->view('templates/frontend/footer');
 	}
 }

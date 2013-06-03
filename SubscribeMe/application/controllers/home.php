@@ -25,6 +25,7 @@ class Home extends MY_Controller {
 
 			$data['menu'] = $dmenu->show_menu();
 			$data['title'] = $data['home_item']['title'];
+			$data['username'] = ucfirst($this->session->userdata('username'));
 
 			$this->load->view('templates/frontend/header', $data);
 			$this->load->view('home/index', $data);

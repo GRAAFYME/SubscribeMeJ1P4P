@@ -50,7 +50,15 @@ class Login extends CI_Controller {
 						'is_logged_in' => true
 						);
 					$this->session->set_userdata($data);
-					redirect('home');
+
+					if($role == "admin")
+					{
+						redirect('admin');
+					}
+					else
+					{
+						redirect('home');
+					}
 				}
 				else
 				{
