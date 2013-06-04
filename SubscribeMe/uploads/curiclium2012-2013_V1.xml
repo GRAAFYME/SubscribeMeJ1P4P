@@ -21,4 +21,11 @@
 	<period> 3 </period>
 	<toets> Deeltoets 2 </toets>
    </course>  
+    <course>  
+        <name>Cybercrime</name>  
+        <description>Cybercrime </description>
+	<year>1</year>
+	<period> 3 </period>
+	<toets> deeltoets 5</toets>
+   </course> 
 </courses>

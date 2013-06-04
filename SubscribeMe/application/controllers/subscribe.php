@@ -1,6 +1,6 @@
 <?php
 class Subscribe extends MY_Controller {
-
+//class constructor
 	public function __construct()
 	{
 		parent::__construct();
@@ -10,8 +10,8 @@ class Subscribe extends MY_Controller {
 		$this->load->model('xmlparser_model');
 		$this->load->model('subscribe_model');
 	}
-
-	public function getall()
+//This function loads all the available tests 
+	public function index()
 	{
 		$dmenu = new Dmenu;
 		$data['menu'] = $dmenu->show_menu();
@@ -20,8 +20,8 @@ class Subscribe extends MY_Controller {
 		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('courses/courses',$data);
 		$this->load->view('templates/frontend/footer');
-
 	}
+//gets all the tests by year
  	public function get($year)
  	{
 

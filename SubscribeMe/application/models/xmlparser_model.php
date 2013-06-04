@@ -38,17 +38,16 @@ class Xmlparser_model extends CI_Model {
 		$xml = simplexml_load_file("uploads/".$file);
 		foreach($xml as $course)
 		{
-			$query = $course->name;
-			$this->db->select('*');
+		
+			$this->db->select('id');
 			$this->db->from('courses');
-			$this->db->where('short_name', (string)$query);
-			$query = $this->db->get();
+			$this->db->where('short_name', (string)$course->name);
+			$a = $this->db->get();
 
-
-			if($query->num_rows() > 0)
+			if($a->num_rows() > 0)
 			{
 				$data = array(
-					'course_name' => (string) $course->description,
+					'course_name' => (int)$c,
 					'year' => (int)$course->year,
 					'period' => (int)$course->period,
 					'test' => (string)$course->toets
@@ -61,10 +60,17 @@ class Xmlparser_model extends CI_Model {
 					'short_name' => (string) $course->name,
 					'full_name' => (string)$course->description
 					);
-				 $this->db->insert('courses', $courses);
+				$this->db->insert('courses', $courses);
+
+				$this->db->select('id');
+				$this->db->from('courses');
+				$this->db->where('short_name', (string)$course->name);
+				$a = $this->db->get();
+				$b = $a->row_array();
+				$c = $b['id'];
 
 				 $data = array(
-					'course_name' => (string) $course->description,
+					'course_name' => (int)$c,
 					'year' => (int)$course->year,
 					'period' => (int)$course->period,
 					'test' => (string)$course->toets
