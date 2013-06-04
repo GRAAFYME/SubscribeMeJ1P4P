@@ -23,8 +23,9 @@
         echo "<td>". $course_name."</td>";
         echo "<td>". $year."</td>";
         echo "<td>". $period."</td>";
-        echo "<td>". $test ."</td>";
-        echo "<td>".form_submit('submit', 'Schrijf uit', 'class="button"')."</td>";
+        echo "<td>". $test ."</td>";?>
+        <td> <input type="submit" value="Schrijf uit" onClick="return confirm ('Weet u zeker dat u zich wilt uitschrijven voor dit vak?')" /> </td>
+        <?php
         echo form_close();
         echo "</tr>";
         ?>

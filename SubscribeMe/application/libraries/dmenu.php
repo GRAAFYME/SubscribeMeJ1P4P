@@ -13,7 +13,7 @@ class Dmenu {
           $dmenu .= "<li>"; $dmenu .= anchor("/nieuws/create", "Create"); $dmenu .= "</li>";
         $dmenu .= "</ul>";
       $dmenu .= "</li>";
-      $dmenu .= "<li>"; $dmenu .= anchor("/inschrijven/getall", "Inschrijven");
+      $dmenu .= "<li>"; $dmenu .= anchor("/inschrijven/", "Inschrijven");
         $dmenu .= "<ul>";
           $dmenu .= "<li>"; $dmenu .= anchor("/inschrijven/get/1", "Jaar 1"); 
             $dmenu .= "<ul>";
