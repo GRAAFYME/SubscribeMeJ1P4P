@@ -8,6 +8,13 @@ class Subscribe_model extends CI_Model {
 		$this->load->library('session');
 	}
 
+	public function coursename()
+	{
+		$this->db->select('short_name')->from('courses');
+		$subquery = $this->db->where('`id` IN (SELECT `course_name` FROM `tests`');
+		return $subquery->result_array();
+	}
+
 	public function getall()
 	{
 		$query = $this->db->get('tests');
@@ -52,4 +59,5 @@ class Subscribe_model extends CI_Model {
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+
 }
