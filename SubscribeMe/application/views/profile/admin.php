@@ -17,6 +17,7 @@
 		</tr>
 	</table>
 	<ul>
+		<li><a href="/admin">Administratie</a></li>
 		<li><a href="/mijn-inschrijvingen">Mijn inschrijvingen</a></li>
 		<li><a href="/uitloggen">Uitloggen</a></li>
 	</ul>
