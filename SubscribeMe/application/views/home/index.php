@@ -1,6 +1,7 @@
 <div id="home">
 	<?php
 	echo '<h2>'.$home_item['title'].'</h2>';
+	echo 'Welkom ' .$username .',<br /><br />';
 	echo $home_item['text'];
 	?>
 </div>
