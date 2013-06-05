@@ -33,6 +33,7 @@ class Subscribe_model extends CI_Model {
 		$query = $this->session->all_userdata();
 		
 		$data = array(
+			'test_id' => $id,
 			'username' => $query['username'],
 			'course_name' => $query_list['course_name'],
 			'year' => $query_list['year'],
@@ -52,6 +53,26 @@ class Subscribe_model extends CI_Model {
 		$this->db->where(array('period' => $period));
 		$query = $this->db->get();
 		return $query->result_array();
+	}
+
+	public function alreadysignedup($username, $id)
+	{
+		$query = $this->db->get_where('signups', array('username' => $username));
+		$query = $this->db->get_where('signups', array('test_id' => $id));
+		
+		if($query->num_rows() > 0 )
+		{
+			return true;
+		}
+
+		else 
+		{
+			return false;
+		}
+	}
+	public function unroll($id)
+	{
+		$this->db->delete('signups', array('test_id'=>$id));		
 	}
 
 }

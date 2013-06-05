@@ -24,7 +24,7 @@
         echo "<td>". $year."</td>";
         echo "<td>". $period."</td>";
         echo "<td>". $test ."</td>";?>
-        <td> <input type="submit" value="Schrijf uit" onClick="return confirm ('Weet u zeker dat u zich wilt uitschrijven voor dit vak?')" /> </td>
+        <?php echo "<td>"."<input type=\"submit\" value=\"schrijf uit\" onClick=\"return confirm('Weet u zeker dat u zich wilt uitschrijven voor : $course_name, $test')\">"."</td>"?>
         <?php
         echo form_close();
         echo "</tr>";

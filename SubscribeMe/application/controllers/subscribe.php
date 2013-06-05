@@ -9,6 +9,7 @@ class Subscribe extends MY_Controller {
 		$this->load->library('amenu');
 		$this->load->model('xmlparser_model');
 		$this->load->model('subscribe_model');
+		$this->load->model('enrollment_model');
 	}
 //This function loads all the available tests 
 	public function index()
@@ -40,13 +41,21 @@ class Subscribe extends MY_Controller {
  	public function course($id)
  	{
  		$dmenu = new Dmenu;
+ 		$data['xml'] = $this->subscribe_model->getcourse($id);
 		$data['menu'] = $dmenu->show_menu();
-
-		$data['xml'] = $this->subscribe_model->getcourse($id);
-
-		$this->load->view('templates/frontend/header',$data);
-		$this->load->view('courses/course',$data);
-		$this->load->view('templates/frontend/footer');
+		$data['userexist'] = $this->subscribe_model->alreadysignedup($this->session->userdata('username'),$id);
+		if($data['userexist'] == false)
+		{
+			$this->load->view('templates/frontend/header',$data);
+			$this->load->view('courses/course',$data);
+			$this->load->view('templates/frontend/footer');
+		}
+		else
+		{
+			$this->load->view('templates/frontend/header',$data);
+			$this->load->view('courses/signout', $data);
+			$this->load->view('templates/frontend/footer');
+		}
  	}
 
  	public function signup($id)
@@ -69,5 +78,11 @@ class Subscribe extends MY_Controller {
  		$this->load->view('templates/frontend/header', $data);
  		$this->load->view('courses/courses', $data);
  		$this->load->view('templates/frontend/footer');
+ 	}
+
+ 	public function unroll($id)
+ 	{
+ 		$this->subscribe_model->unroll($id);
+ 		redirect('inschrijven');
  	}
  }
