@@ -1,10 +1,18 @@
 <?php foreach ($news as $news_item): ?>
 
-    <h2><?php echo $news_item['title'] ?></h2>
+    <h2><?php echo substr($news_item['title'], 0, 50); 
+    if(strlen($news_item['title']) > 50)
+    	{
+    		echo "..";
+    	}
+    	?>
+    </h2>
     <div id="main">
-        <?php 
-        	$small = substr($news_item['text'], 0, 100);
-        	echo $small        	
+        <?php echo substr($news_item['text'], 0, 100);     	
+	    if(strlen($news_item['text']) > 100)
+    	{
+    		echo "..";
+    	}
     	?>
     </div>
     <p><a href="/nieuws/<?php echo $news_item['slug'] ?>">Bekijk nieuwsbericht</a></p>

@@ -37,6 +37,7 @@ class News_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	/*
 	public function set_news()
 	{
 		$this->load->helper('url');
@@ -53,12 +54,12 @@ class News_model extends CI_Model {
 			'text' => $this->input->post('text')
 			);
 		
-			/*return */$this->db->insert('news', $data);
+			/*return *//*$this->db->insert('news', $data);
 			return "success";
 		}
 		else // News item DOES exitst!
 		{
 			return "error";
 		}	
-	}
+	}*/
 }

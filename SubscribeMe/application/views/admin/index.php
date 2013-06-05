@@ -1,3 +1,3 @@
 This is admin part, niet voor ldap dinges<br /><br />
 
-FAQ  -  NEWS -  PAGES
+FAQ  -  NEWS -  PAGES - UPLOAD

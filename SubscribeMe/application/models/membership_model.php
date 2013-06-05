@@ -9,6 +9,7 @@ class Membership_model extends CI_Model {
 	}
 
 	//validates the user input with the database, if the number of rows equils 1 this function will return true to the controller
+	// if password = '' || username = '' false else try validate is dit nodig of al genoeg ondervangen in login.php door min lenght op 2 te zetten??
 	function validate() {
 		$admincheck = explode('_', $this->input->post('username'));
 		if($admincheck[0] == "admin")
