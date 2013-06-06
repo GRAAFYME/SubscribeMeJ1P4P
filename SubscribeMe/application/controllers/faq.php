@@ -43,6 +43,7 @@ class Faq extends MY_Controller {
 		}
 	}
 
+	/*
 	public function create()
 	{				
 		$this->load->helper('form');
@@ -83,5 +84,5 @@ class Faq extends MY_Controller {
 				$this->load->view('templates/backend/footer');
 			}
 		}
-	}
+	}*/
 }

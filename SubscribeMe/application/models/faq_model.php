@@ -21,6 +21,7 @@ class Faq_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	/*
 	public function set_faq()
 	{
 		$this->load->helper('url');
@@ -37,12 +38,12 @@ class Faq_model extends CI_Model {
 			'answer' => $this->input->post('answer')
 			);
 		
-			/*return */$this->db->insert('faq', $data);
+			/*return *//*$this->db->insert('faq', $data);
 			return "success";
 		}
 		else // News item DOES exitst!
 		{
 			return "error";
-		}		
-	}
+		}	*/	
+	
 }
