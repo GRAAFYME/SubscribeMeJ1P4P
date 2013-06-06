@@ -7,6 +7,7 @@ class Upload extends MY_Controller {
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->library('dmenu');
+		$this->load->helper('file');
 	}
 
 	function index()
@@ -15,6 +16,7 @@ class Upload extends MY_Controller {
 		
 		$data['menu'] = $dmenu->show_menu();
 		$data['title'] = 'Upload';
+
 
 		$this->load->view('templates/backend/header', $data);
 		$this->load->view('admin/upload/upload_form',array('error'=>''));
@@ -44,8 +46,16 @@ class Upload extends MY_Controller {
 		else
 		{
 			$data = array('upload_data' => $this->upload->data());
+			$data['title'] = 'Upload section';
+			$data = get_filenames("uploads");
+			$data['file'] = end($data);
+			$dmenu = new Dmenu;
+		
+			$data['menu'] = $dmenu->show_menu();
 
-			redirect('xml_parser');
+			$this->load->view('templates/backend/header', $data);
+			$this->load->view('admin/upload/are_you_sure', $data);
+			$this->load->view('templates/backend/footer');
 		}
 	}
 }
