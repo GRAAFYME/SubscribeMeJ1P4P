@@ -111,11 +111,10 @@
 	$route['admin/nieuws/delete/(:num)'] = 'admin_news/delete';
 
 	/* CMS/PAGES */
-	$route['admin/pages'] = 'admin_pages';
-	$route['admin/pages/create'] = 'admin_pages/create';
-	$route['admin/pages/read'] = 'admin_pages/read';
-	$route['admin/pages/update'] = 'admin_pages/update';
-	$route['admin/pages/delete'] = 'admin_pages/delete';
+	$route['admin/paginas'] = 'admin_pages';
+	$route['admin/paginas/(:num)'] = 'admin_pages/index/$1';
+	$route['admin/paginas/read/(:num)'] = 'admin_pages/read';
+	$route['admin/paginas/update/(:num)'] = 'admin_pages/update';
 
 	/* CMS/UPLOAD */
 	$route['admin/upload'] = 'upload';

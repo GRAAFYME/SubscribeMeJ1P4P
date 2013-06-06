@@ -1,48 +1,43 @@
 <?php
-
 class Admin_pages_model extends CI_Model {
-	//table name
+
+	// Table name
 	private $pages= 'pages';
 
-	function Entry(){
+	public function __construct()
+	{
 		parent::__construct();
+
+		$this->load->helper('url'); // Load helper(s)
 	}
-	// get number of entries in database
-	function count_all(){
+
+	public function count_all()
+	{
+		// Get number of entries in database
 		return $this->db->count_all($this->pages);
 	}
-	//get entries with paging
-	function get_paged_list($limit = 10, $offset = 0){
+
+	public function get_paged_list($limit = 10, $offset = 0)
+	{
+		// Get entries for each page
 		$this->db->order_by('id', 'desc');
 		return $this->db->get($this->pages, $limit, $offset);
 	}
-	//get entry by id
-	function get_by_id($id){
+
+	public function get_by_id($id)
+	{
+		// Get entry by id	
 		$this->db->where('id', $id);
 		return $this->db->get($this->pages);
 	}
-	//add new entry
-	function save(){
-		$data = array(
-			'title' => $this->input->post('title'),
-			'text' => $this->input->post('text')
-			);
-		$this->db->insert('pages',$data);
-	}
-	//update entry by id
-	function update($id){
+
+	public function update($id)
+	{
+		// Update current entry
 		$entry = array('title' => $this->input->post('title'),
 						'text' => $this->input->post('text')
 						);
 		$this->db->where('id', $id);
 		$this->db->update('pages', $entry);
-		// $this->db->insert('admin_pages');
-	}
-	//delete entry by id
-	function delete($id, $entry){
-		$this->db->where('id', $id);
-		$this->db->delete($this->pages);
 	}
 }
-
-?>
