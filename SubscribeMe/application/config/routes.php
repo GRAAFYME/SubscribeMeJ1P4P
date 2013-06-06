@@ -83,7 +83,11 @@
 	$route['profiel'] = 'profile';
 
 	/* PROFILE/PERSONEEL */
-	$route['vakken'] = 'getsignups';
+	$route['inschrijvingen'] = 'getsignups';
+	$route['inschrijvingen/vakken(:any)'] = 'getsignups/signups/$1';
+	$route['inschrijvingen/periode/(:num)/(:num)'] = 'getsignups/course_summary/$1/$2';
+	$route['inschrijvingen/vak/(:any)/(:num)/(:num)'] ='getsignups/courses/$1/$2/$3';
+	$route['vakken/excell_export/(:any)/(:num)/(:num)'] ='getsignups/excell_export/$1/$2/$3';
 
 	/* PROFILE/STUDENT */
 	$route['mijn-inschrijvingen'] = 'my_enrollment';
