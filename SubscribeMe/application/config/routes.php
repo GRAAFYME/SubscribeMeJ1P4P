@@ -40,6 +40,9 @@
 	/* LDAP login */
 	$route['default_controller'] = 'home';
 
+	$route['export/get_excell'] = 'excel_export/get_excell';
+	$route['export/to_excell'] = 'excel_export/to_excell';
+
 	$route['nieuws'] = 'news';
 	$route['nieuws/(:any)'] = 'news/view/$1';
 	$route['nieuws/create'] = 'news/create';
@@ -76,6 +79,8 @@
 	$route['uitloggen'] = 'logout';
 
 	$route['welcome'] = 'welcome'; /* default CI controller */
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
