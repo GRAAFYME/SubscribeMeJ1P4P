@@ -41,8 +41,8 @@
 	$route['default_controller'] = 'home';
 
 
-	$route['export/get_excell'] = 'excel_export/get_excell';
-	$route['export/to_excell'] = 'excel_export/to_excell';
+	$route['export/get_excel'] = 'excel_export/get_excel';
+	$route['export/to_excel'] = 'excel_export/to_excel';
 
 
 	/* LOGIN */
@@ -87,7 +87,7 @@
 	$route['inschrijvingen/vakken(:any)'] = 'getsignups/signups/$1';
 	$route['inschrijvingen/periode/(:num)/(:num)'] = 'getsignups/course_summary/$1/$2';
 	$route['inschrijvingen/vak/(:any)/(:num)/(:num)'] ='getsignups/courses/$1/$2/$3';
-	$route['vakken/excell_export/(:any)/(:num)/(:num)'] ='getsignups/excell_export/$1/$2/$3';
+	$route['vakken/excel_export/(:any)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
 
 	/* PROFILE/STUDENT */
 	$route['mijn-inschrijvingen'] = 'my_enrollment';
@@ -119,7 +119,12 @@
 	$route['admin/paginas/(:num)'] = 'admin_pages/index/$1';
 	$route['admin/paginas/read/(:num)'] = 'admin_pages/read';
 	$route['admin/paginas/update/(:num)'] = 'admin_pages/update';
-
+	/* CMS/TESTS */
+	$route['admin/tests'] = 'admin_tests';
+	$route['admin/tests/(:num)'] = 'admin_tests/index/$1';
+	$route['admin/tests/read/(:num)'] = 'admin_tests/read/$1';
+	$route['admin/tests/update/(:num)'] = 'admin_tests/update/$1';
+	$route['admin/tests/delete/(:num)'] = 'admin_tests/delete/$1';
 	/* CMS/UPLOAD */
 	$route['admin/upload'] = 'upload';
 	$route['admin/upload/do_upload'] = 'upload/do_upload';

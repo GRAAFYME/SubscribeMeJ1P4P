@@ -80,7 +80,7 @@ class Admin_faq_model extends CI_Model {
 		}		
 	}
 	
-	public function delete($id, $entry) 
+	public function delete($id) 
 	{
 		// Delete entry by id
 		$this->db->where('id', $id);

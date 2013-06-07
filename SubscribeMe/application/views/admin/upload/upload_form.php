@@ -12,7 +12,7 @@
 
 <br /><br />
 
-<input type="submit" value="upload" onClick="return confirm ('Weet u zeker dat u dit bestand wilt uploaden?')" />
+<input type="submit" value="upload" class="default_button" onClick="return confirm ('Weet u zeker dat u dit bestand wilt uploaden?')" />
 
 </form>
 

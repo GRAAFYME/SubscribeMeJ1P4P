@@ -16,7 +16,7 @@ class Subscribe extends MY_Controller {
 	{
 		$dmenu = new Dmenu;
 		$data['menu'] = $dmenu->show_menu();
-		$data['xml'] = $this->subscribe_model->getall();
+		$data['courses'] = $this->subscribe_model->getall();
 
 		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('courses/courses',$data);
@@ -31,7 +31,7 @@ class Subscribe extends MY_Controller {
 		$data['menu'] = $dmenu->show_menu();
  		
 
- 		$data['xml'] = $this->subscribe_model->getxml($year);
+ 		$data['courses'] = $this->subscribe_model->getxml($year);
 
  		$this->load->view('templates/frontend/header',$data);
 		$this->load->view('courses/courses',$data);
@@ -73,7 +73,7 @@ class Subscribe extends MY_Controller {
  	{
  		$dmenu = new Dmenu;
  		$data['menu'] = $dmenu->show_menu();
- 		$data['xml'] = $this->subscribe_model->getperiod($year, $period);
+ 		$data['courses'] = $this->subscribe_model->getperiod($year, $period);
 
  		$this->load->view('templates/frontend/header', $data);
  		$this->load->view('courses/courses', $data);

@@ -28,3 +28,4 @@
 
 <?php endforeach?>
 </table>
+<a href='/vakken/excel_export/<?php echo $course_name?>/<?php echo $year?>/<?php echo $period?>'><span style='color:green;'>Exporteer de data naar Excell</span></a>
