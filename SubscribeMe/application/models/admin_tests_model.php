@@ -68,7 +68,7 @@ class Admin_tests_model extends CI_Model {
 		}
 		else // course DOES exitst -> update current entry -> return true
 		{
-			$entry = array('course_name' => $this->input->post('course_name'),
+			$entry = array('course_name' => $this->input->post('course'),
 							'year' => $this->input->post('year'),
 							'period' => $this->input->post('period'),
 							'test' => $this->input->post('test')
@@ -84,5 +84,11 @@ class Admin_tests_model extends CI_Model {
 		// Delete entry by id
 		$this->db->where('id', $id);
 		$this->db->delete($this->tests);
+	}
+
+	public function courses()
+	{
+		$query = $this->db->get('courses');
+		return $query->result_array();
 	}
 }

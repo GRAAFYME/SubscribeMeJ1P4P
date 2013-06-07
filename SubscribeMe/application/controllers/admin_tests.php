@@ -136,8 +136,8 @@ class Admin_tests extends AD_Controller {
 		$entry = $this->admin_tests_model->get_by_id($id)->row();
 
 		// Prefill form values
-		if ($this->input->post('course_name') == '')		{	$this->form_validation->course_name = $entry->course_name;				}
-		else 											{	$this->form_validation->course_name = $this->input->post('course_name');	}
+		
+
 
 		if ($this->input->post('year') == '')			{	$this->form_validation->year = $entry->year;					}
 		else 											{	$this->form_validation->year = $this->input->post('year');		}
@@ -152,7 +152,7 @@ class Admin_tests extends AD_Controller {
 		$data['message'] = '';
 		$data['action'] = site_url('admin/tests/update/'.$id);
 		$data['link_back'] = anchor('admin/tests','Back to list of entries', array('class'=>'back'));
-		$data['course_name_fieldname'] = 'course_name';
+		$data['course_name'] = $this->admin_tests_model->courses();
 		$data['year_fieldname'] = 'year';
 		$data['period_fieldname'] = 'period';
 		$data['test_fieldname'] = 'test';
@@ -163,7 +163,6 @@ class Admin_tests extends AD_Controller {
 		$data['menu'] = $amenu->show_menu();
 
 		// Set question and answer field as required
-		$this->form_validation->set_rules('course_name', 'Course_name', 'required');
 		$this->form_validation->set_rules('year', 'Year', 'required');
 		$this->form_validation->set_rules('period', 'Period', 'required');
 		$this->form_validation->set_rules('test', 'Test', 'required');

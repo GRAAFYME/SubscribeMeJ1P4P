@@ -11,9 +11,8 @@
             <input type="hidden" name="id" value="<?php echo $this->form_validation->id; ?>"/>
         </tr> -->
         <tr>
-            <td valign="top"><?php echo $course_name_fieldname; ?><span style="color:red;">*</span></td>
-            <td><input type="text" name="<?php echo $course_name_fieldname; ?>" class="text" value="<?php echo $this->form_validation->$course_name_fieldname; ?>"/>
-            </td>
+            <td valign="top"><?php echo "test"; ?><span style="color:red;">*</span></td>
+            <td>  <select name="course" select="<?php $entry->$course_name?>" > <?php foreach($course_name as $course):?><option value="<?php echo $course['short_name']?>"><?php echo$course['short_name'] ?></option><?php endforeach ?></select></td>
         </tr>
          <tr>
             <td valign="top"><?php echo $year_fieldname; ?><span style="color:red;">*</span></td>
