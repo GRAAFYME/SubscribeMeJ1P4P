@@ -26,7 +26,7 @@ class Admin_tests extends AD_Controller {
 
 		// Generate pagination
 		$this->load->library('pagination');
-		$config['base_url']    = site_url('admin/faq');
+		$config['base_url']    = site_url('admin/tests');
         $config['total_rows']  = $this->admin_tests_model->count_all();
         $config['per_page']    = $this->limit;
         $config['uri_segment'] = $uri_segment;
@@ -34,24 +34,24 @@ class Admin_tests extends AD_Controller {
         $data['pagination']    = $this->pagination->create_links();
 
         // Generate table data
-        $this->table->set_heading('id', 'course_name', 'year', 'period', 'tests', '');
+        $this->table->set_heading('id', 'course_name', 'year', 'period', 'test', '');
         foreach ($entries as $entry)
         {
-        	$this->table->add_row($entry->id, substr($entry->course_name, 0, 40), substr($entry->year, 0, 40),substr($entry->period, 0, 40),substr($entry->tests, 0, 40),
+        	$this->table->add_row($entry->id, substr($entry->course_name, 0, 40), substr($entry->year, 0, 40),substr($entry->period, 0, 40),substr($entry->test, 0, 40),
         		anchor('admin/tests/read/'.$entry->id,'view', array('class'=>'view')).' '.
         		anchor('admin/tests/update/'.$entry->id, 'update', array('class'=>'update')).' '.
         		anchor('admin/tests/delete/'.$entry->id, 'delete', array('class'=>'delete', 'onclick'=>"return confirm('Are you sure you want to delete this entry?')"))
         	);
         }        
         $data['table'] = $this->table->generate();
-        $data['add_data'] = 'admin/tests/create';
-        $data['show_add_button'] = TRUE;
+        $data['add_data'] = '';
+        $data['show_add_button'] = FALSE;
 
         // Load view
     	$amenu = new Amenu;
 
 		$data['menu'] = $amenu->show_menu();
-		$data['title'] = 'CRUD -> FAQ';
+		$data['title'] = 'CRUD -> TESTS';
 
 		$this->load->view('templates/backend/header', $data);
 		$this->load->view('admin/entryList', $data);
@@ -136,16 +136,16 @@ class Admin_tests extends AD_Controller {
 		$entry = $this->admin_tests_model->get_by_id($id)->row();
 
 		// Prefill form values
-		if ($this->input->post('course_name') == '')		{	$this->form_validation->question = $entry->course_name;				}
-		else 											{	$this->form_validation->question = $this->input->post('course_name');	}
+		if ($this->input->post('course_name') == '')		{	$this->form_validation->course_name = $entry->course_name;				}
+		else 											{	$this->form_validation->course_name = $this->input->post('course_name');	}
 
-		if ($this->input->post('year') == '')			{	$this->form_validation->answer = $entry->year;					}
-		else 											{	$this->form_validation->answer = $this->input->post('year');		}
-		if ($this->input->post('period') == '')		{	$this->form_validation->question = $entry->period;				}
-		else 											{	$this->form_validation->question = $this->input->post('period');	}
+		if ($this->input->post('year') == '')			{	$this->form_validation->year = $entry->year;					}
+		else 											{	$this->form_validation->year = $this->input->post('year');		}
+		if ($this->input->post('period') == '')		{	$this->form_validation->period = $entry->period;				}
+		else 											{	$this->form_validation->period = $this->input->post('period');	}
 
-		if ($this->input->post('test') == '')			{	$this->form_validation->answer = $entry->test;					}
-		else 											{	$this->form_validation->answer = $this->input->post('test');		}
+		if ($this->input->post('test') == '')			{	$this->form_validation->test = $entry->test;					}
+		else 											{	$this->form_validation->test = $this->input->post('test');		}
 		
 		// Set common properties
 		$data['title'] = 'Update entry';
@@ -155,7 +155,7 @@ class Admin_tests extends AD_Controller {
 		$data['course_name_fieldname'] = 'course_name';
 		$data['year_fieldname'] = 'year';
 		$data['period_fieldname'] = 'period';
-		$data['tests_fieldname'] = 'test';
+		$data['test_fieldname'] = 'test';
 
 		// Load view
 		$amenu = new Amenu;
@@ -166,7 +166,7 @@ class Admin_tests extends AD_Controller {
 		$this->form_validation->set_rules('course_name', 'Course_name', 'required');
 		$this->form_validation->set_rules('year', 'Year', 'required');
 		$this->form_validation->set_rules('period', 'Period', 'required');
-		$this->form_validation->set_rules('test', 'Tests', 'required');
+		$this->form_validation->set_rules('test', 'Test', 'required');
 
 		if ($this->form_validation->run() === FALSE) // Display error (question and/or answer field is empty)
 		{
@@ -176,14 +176,14 @@ class Admin_tests extends AD_Controller {
 		}
 		else // Try update item into DB
 		{
-			$bool = $this->admin_tests_model->update($id, $entry->course_name); // Update function will return true or false in $bool
+			$bool = $this->admin_tests_model->update($id); // Update function will return true or false in $bool
 
 			if ($bool == false) // Display error (title (and slug) are in use)
 			{
 				$data['message'] = 'This course name doesnt exists';
 
 				$this->load->view('templates/backend/header', $data);
-				$this->load->view('admin/entryEdit', $data);
+				$this->load->view('admin/entryEdit_tests', $data);
 				$this->load->view('templates/backend/footer');
 			}
 			else // Current item successfully updated
@@ -199,6 +199,6 @@ class Admin_tests extends AD_Controller {
 		
 		$this->admin_tests_model->delete($id); // Delete this record
 
-		redirect('admin/faq'); // Redirect back to overview
+		redirect('admin/tests'); // Redirect back to overview
 	}
 }

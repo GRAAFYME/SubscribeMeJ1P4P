@@ -15,19 +15,19 @@
             <td><input type="text" name="<?php echo $course_name_fieldname; ?>" class="text" value="<?php echo $this->form_validation->$course_name_fieldname; ?>"/>
             </td>
         </tr>
-        <tr>
+         <tr>
             <td valign="top"><?php echo $year_fieldname; ?><span style="color:red;">*</span></td>
-            <td><textarea id="<?php echo $year_fieldname; ?>" name="<?php echo $year_fieldname; ?>" wrap = "hard" rows ="10" cols="70" value="<?php echo $this->form_validation->$year_fieldname; ?>" ><?php echo $this->form_validation->$year_fieldname; ?></textarea>
+            <td><input type="text" name="<?php echo $year_fieldname; ?>" class="text" value="<?php echo $this->form_validation->$year_fieldname; ?>"/>
             </td>
         </tr>
-         <tr>
+        <tr>
             <td valign="top"><?php echo $period_fieldname; ?><span style="color:red;">*</span></td>
-            <td><textarea id="<?php echo $period_fieldname; ?>" name="<?php echo $period_fieldname; ?>" wrap = "hard" rows ="10" cols="70" value="<?php echo $this->form_validation->$period_fieldname; ?>" ><?php echo $this->form_validation->period_fieldname; ?></textarea>
+            <td><input type="text" name="<?php echo $period_fieldname; ?>" class="text" value="<?php echo $this->form_validation->$period_fieldname; ?>"/>
             </td>
         </tr>
         <tr>
             <td valign="top"><?php echo $test_fieldname; ?><span style="color:red;">*</span></td>
-            <td><textarea id="<?php echo $test_fieldname; ?>" name="<?php echo $test_fieldname; ?>" wrap = "hard" rows ="10" cols="70" value="<?php echo $this->form_validation->$test_fieldname; ?>" ><?php echo $this->form_validation->$test_fieldname; ?></textarea>
+            <td><input type="text" name="<?php echo $test_fieldname; ?>" class="text" value="<?php echo $this->form_validation->$test_fieldname; ?>"/>
             </td>
         </tr>
         <!-- <tr>

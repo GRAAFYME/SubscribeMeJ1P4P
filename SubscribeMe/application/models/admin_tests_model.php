@@ -55,12 +55,12 @@ class Admin_tests_model extends CI_Model {
 	}
 	*/
 
-	public function update($id, $course_name)
+	public function update($id)
 	{		
 	
 
 		// Check if slug already exists
-		$data['tests_item'] = $this->db->get_where('courses', array('short_name' => $course_name))->row_array();
+		$data['tests_item'] = $this->db->get_where('courses', array('short_name' => $this->input->post('course_name')))->row_array();
 
 		if (empty($data['tests_item'])) //  course doesn't exitst ->  return false
 		{
