@@ -48,7 +48,6 @@ class Dmenu {
       $dmenu .= "<li>"; $dmenu .= anchor("/faq","FAQ"); $dmenu .= "</li>";
       $dmenu .= "<li>"; $dmenu .= anchor("/profiel", "Profiel");
         $dmenu .= "<ul>"; 
-          $dmenu .= "<li>"; $dmenu .= anchor("/mijn-inschrijvingen","Mijn inschrijvingen"); $dmenu .= "</li>";
           $dmenu .= "<li>"; $dmenu .= anchor("/uitloggen","Uitloggen"); $dmenu .= "</li>";
         $dmenu .= "</ul>";
       $dmenu .= "</li>";

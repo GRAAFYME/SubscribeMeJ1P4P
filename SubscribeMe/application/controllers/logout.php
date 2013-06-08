@@ -1,5 +1,4 @@
 <?php
-
 class Logout extends MY_Controller 
 {
 	function __construct()
@@ -7,9 +6,9 @@ class Logout extends MY_Controller
 		parent::__construct();
 	}
 
+	// Destroy session and redirect to 'login'
 	function index()
 	{
-		$this->session->unset_userdata('logged_in');
 		$this->session->sess_destroy();
 		redirect('login');
 	}

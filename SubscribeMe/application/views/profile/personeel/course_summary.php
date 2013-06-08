@@ -9,7 +9,7 @@
         $course_name = substr($course_list['full_name'], 0,100);
         $short_name = substr($course_list['short_name'], 0,100);
         echo "<tr>";
-        echo "<td>".anchor('inschrijvingen/vakken'.$short_name,$course_name)."</td>";
+        echo "<td>".anchor('inschrijvingen/vakken/'.$short_name,$course_name)."</td>";
         echo "</tr>";   
         ?>
     </div>

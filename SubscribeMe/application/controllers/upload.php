@@ -1,6 +1,6 @@
 <?php
 
-class Upload extends MY_Controller {
+class Upload extends AD_Controller {
 
 	function __construct()
 	{

@@ -46,6 +46,8 @@ class Admin_news extends AD_Controller {
         $data['table'] = $this->table->generate();
         $data['add_data'] = 'admin/nieuws/create';
         $data['show_add_button'] = TRUE;
+        $data['upload'] = '';
+        $data['show_upload_button'] = FALSE;
 
         // Load view
     	$amenu = new Amenu;

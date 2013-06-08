@@ -7,4 +7,3 @@
 	<li><a href="<?php echo base_url(); ?>" target="_blank">Bekijk website</a></li>
 	<li><a href="<?php echo base_url(); ?>uitloggen">Uitloggen</a></li>
 </ul>
-Toetsen: knop voor upload

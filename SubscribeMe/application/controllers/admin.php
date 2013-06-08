@@ -4,11 +4,13 @@ class Admin extends AD_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('amenu');
+
+		$this->load->library('amenu'); // Load library(s)
 	}
 
 	public function index()
 	{
+		// Load view
 		$amenu = new Amenu;
 
 		$data['menu'] = $amenu->show_menu();

@@ -1,16 +1,18 @@
 <?php
-//Gets all the signups 
-class Getsignups extends MY_Controller {
+class Getsignups extends PE_Controller {
 
+	// Gets all the signups 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('dmenu');	
-		$this->load->library('amenu');
-		$this->load->model('getsignup_model');
+
+		$this->load->library('dmenu'); // Load library(s)
+
+		$this->load->model('getsignup_model'); // Load model(s)
 
 	}
-//Shows all the availible courses
+
+	// Shows all the availible courses
 	public function index()
 	{
 		$dmenu = new Dmenu;
@@ -23,7 +25,8 @@ class Getsignups extends MY_Controller {
 		$this->load->view('profile/personeel/course_summary', $data);
 		$this->load->view('templates/backend/footer');
 	}
-//Shows all the signups for a selected course
+
+	// Shows all the signups for a selected course
 	public function signups($id)
 	{
 		$dmenu = new Dmenu;
@@ -36,7 +39,8 @@ class Getsignups extends MY_Controller {
 		$this->load->view('profile/personeel/course_signups',$data);
 		$this->load->view('templates/backend/footer');
 	}
-//filter on courses for year and period 
+
+	// Filter on courses for year and period 
 	public function course_summary($year,$period)
 	{
 		$dmenu = new Dmenu;
@@ -49,7 +53,8 @@ class Getsignups extends MY_Controller {
 		$this->load->view('profile/personeel/year_period',$data);
 		$this->load->view('templates/backend/footer');
 	}
-//Filters a particular course on year and period
+
+	// Filters a particular course on year and period
 	public function courses($id,$year,$period)
 	{
 		$dmenu = new Dmenu;
@@ -63,7 +68,8 @@ class Getsignups extends MY_Controller {
 		$this->load->view('templates/backend/footer');
 
 	}
-//Calls the excel view, which will be used for an excel export
+
+	// Calls the excel view, which will be used for an excel export
 	public function excel_export($id,$year,$period)
 	{
 		$data['signups'] = $this->getsignup_model->signups($id,$year,$period);

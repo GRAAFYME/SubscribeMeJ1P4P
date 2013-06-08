@@ -12,7 +12,7 @@
         </tr> -->
         <tr>
             <td valign="top"><?php echo "test"; ?><span style="color:red;">*</span></td>
-            <td>  <select name="course" select="<?php $entry->$course_name?>" > <?php foreach($course_name as $course):?><option value="<?php echo $course['short_name']?>"><?php echo$course['short_name'] ?></option><?php endforeach ?></select></td>
+            <td>  <select name="course" select="<?php $entry->$course_name?>" > <?php foreach($course_name as $course):?><option value="<?php echo $course['short_name']?>" <?php if($course['short_name'] == $entry->course_name) { echo selected="selected" } ?>><?php echo $course['short_name'] ?></option><?php endforeach ?></select></td>
         </tr>
          <tr>
             <td valign="top"><?php echo $year_fieldname; ?><span style="color:red;">*</span></td>

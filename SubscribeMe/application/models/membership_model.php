@@ -11,8 +11,8 @@ class Membership_model extends CI_Model {
 	//validates the user input with the database, if the number of rows equils 1 this function will return true to the controller
 	// if password = '' || username = '' false else try validate is dit nodig of al genoeg ondervangen in login.php door min lenght op 2 te zetten??
 	function validate() {
-		$admincheck = explode('_', $this->input->post('username'));
-		if($admincheck[0] == "admin")
+		$localcheck = explode('_', $this->input->post('username'));
+		if($localcheck[0] == "admin" || $localcheck[0] == "personeel" || $localcheck[0] == "student")
 		{
 			$this->db->where('username', $this->input->post('username'));
 			$this->db->where('password',md5($this->input->post('password')));
@@ -22,6 +22,10 @@ class Membership_model extends CI_Model {
 			{
 				return true;
 			}
+			else
+			{
+				return false;
+			}
 		}
 		else
 		{
@@ -29,12 +33,14 @@ class Membership_model extends CI_Model {
 			$password = $this->input->post('password');
 
 			$connection = @ldap_connect(_ldapServer_,_ldapPort_) or die(ldap_error());
-			if($connection){
+			if($connection)
+			{
 				ldap_set_option($connection, LDAP_OPT_PROTOCOL_VERSION, _ldapVersion_);
 				ldap_bind($connection);
-			}else{
+			}
+			else
+			{
 				return false;
-				die('Coud not connect to LDAP server');
 			}
 
 			$search = ldap_search($connection,_ldapDomains_,"uid=" . $username);
@@ -47,15 +53,27 @@ class Membership_model extends CI_Model {
 			{
 				return true;
 			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 
 	function getrole() {
 		
-		$admincheck = explode('_', $this->input->post('username'));
-		if($admincheck[0] == "admin")
+		$localcheck = explode('_', $this->input->post('username'));
+		if($localcheck[0] == "admin")
 		{
 			return "admin";
+		}
+		else if($localcheck[0] == "personeel")
+		{
+			return "personeel";
+		}
+		else if($localcheck[0] == "student")
+		{
+			return "student";
 		}
 		else
 		{
@@ -107,9 +125,9 @@ class Membership_model extends CI_Model {
 	function getname($user) {
 		
 		$username = $user;
-		$admincheck = explode('_', $user);
+		$localcheck = explode('_', $user);
 
-		if($admincheck[0] == "admin")
+		if($localcheck[0] == "admin" || $localcheck[0] == "personeel" || $localcheck[0] == "student")
 		{
 			$this->db->select('first_name');
 			$this->db->select('last_name');
@@ -138,55 +156,15 @@ class Membership_model extends CI_Model {
 			$search = ldap_search($connection, $dn, $filter) or die ("Search failed");
 			$entries = ldap_get_entries($connection, $search);
 			return $entries[0]["cn"][0];
-
-			/*
-			$connection = @ldap_connect(_ldapServer_,_ldapPort_) or die(ldap_error());
-			if($connection)
-			{
-				ldap_set_option($connection, LDAP_OPT_PROTOCOL_VERSION, _ldapVersion_);
-				ldap_bind($connection);
-			}
-			else
-			{
-				return false;
-				die('Coud not connect to LDAP server');
-			}
-			
-			$master = _ldapDomains_;
-			$dn = "ou=personeel," . $master; //ou=Engineering, ou=Techniek, 
-			$filter = "uid=" . $username;
-			$search = ldap_search($connection, $dn, $filter);
-			$result = ldap_get_entries($connection, $search);
-			if(count($result) == 1)
-			{
-				$master = _ldapDomains_;
-				$dn = "ou=studenten," . $master; //ou=Engineering, ou=Techniek, 
-				$filter = "uid=" . $username;
-				$search = ldap_search($connection, $dn, $filter);
-				$result = ldap_get_entries($connection, $search);
-				if(count($result) == 1)
-				{
-					return "guest";
-				}
-				else
-				{
-					return "student";
-				}
-			}
-			else
-			{
-				return "personeel";
-			}
-			*/
 		}		
 	}
 
 	function getemail($user) {
 		
 		$username = $user;
-		$admincheck = explode('_', $user);
+		$localcheck = explode('_', $user);
 
-		if($admincheck[0] == "admin")
+		if($localcheck[0] == "admin" || $localcheck[0] == "personeel" || $localcheck[0] == "student")
 		{
 			$this->db->select('email');
 			$this->db->from('users');
@@ -217,20 +195,27 @@ class Membership_model extends CI_Model {
 	}
 
 	//stores the user input in the users table , the password will be hashed into the database
-	function create_member() {
+	function create_member() 
+	{
+		$data['username'] = $this->db->get_where('users', array('username' => $this->input->post('username')))->row_array(); // Check if username already exists
 
-		$username = $this->input->post('username');
+		if (empty($data['username'])) // Username DOESN'T exitst -> insert new entry -> return true
+		{
+			$new_member_insert_data = array(
+				'first_name' => $this->input->post('first_name'),
+				'last_name'	 => $this->input->post('last_name'),
+				'email'	     => $this->input->post('email'),
+				'username'	 => $this->input->post('username'),
+				'password'	 => md5($this->input->post('password'))
+		    );
 
-		$new_member_insert_data = array(
-			'first_name' => $this->input->post('first_name'),
-			'last_name'	 => $this->input->post('last_name'),
-			'email'	     => $this->input->post('email'),
-			'username'	 => $this->input->post('username'),
-			'password'	 => md5($this->input->post('password'))
-	    );
-
-	    $insert = $this->db->insert('users', $new_member_insert_data);
-	    return $insert;
+		    $this->db->insert('users', $new_member_insert_data);
+		    return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
 
 

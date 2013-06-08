@@ -45,6 +45,8 @@ class Admin_pages extends AD_Controller {
         $data['table'] = $this->table->generate();
         $data['add_data'] = '';
         $data['show_add_button'] = FALSE;
+        $data['upload'] = 'upload';
+        $data['show_upload_button'] = FALSE;
 
         // Load view
     	$amenu = new Amenu;

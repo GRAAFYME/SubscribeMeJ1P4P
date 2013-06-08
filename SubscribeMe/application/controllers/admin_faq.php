@@ -46,6 +46,8 @@ class Admin_faq extends AD_Controller {
         $data['table'] = $this->table->generate();
         $data['add_data'] = 'admin/faq/create';
         $data['show_add_button'] = TRUE;
+        $data['upload'] = '';
+        $data['show_upload_button'] = FALSE;
 
         // Load view
     	$amenu = new Amenu;

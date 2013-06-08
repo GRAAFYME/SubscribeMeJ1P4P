@@ -37,13 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-	/* any waar mogelijk naar num veranderen, dit kan problemen voorkomen zoals bij crud */
 	$route['default_controller'] = 'home';
-
-
-	$route['export/get_excel'] = 'excel_export/get_excel';
-	$route['export/to_excel'] = 'excel_export/to_excel';
-
 
 	/* LOGIN */
 	$route['login'] = 'login';
@@ -55,27 +49,24 @@
 
 
 	/* NEWS */
-
 	$route['nieuws'] = 'news';
 	$route['nieuws/(:any)'] = 'news/view/$1';
-	//$route['nieuws/create'] = 'news/create'; deze moet via cms route geregeld worden.
 	/* NEWS */
 
 
 	/* SUBSCRIBE */
 	$route['inschrijven'] = 'subscribe';
-	$route['inschrijven/get/(:any)'] = 'subscribe/get/$1';
-	$route['inschrijven/vak/(:any)'] = 'subscribe/course/$1';
+	$route['inschrijven/get/(:num)'] = 'subscribe/get/$1';
+	$route['inschrijven/vak/(:num)'] = 'subscribe/course/$1';
 	$route['inschrijven/opgeven'] = 'subscribe/signup';
-	$route['inschrijven/opgeven/(:any)'] = 'subscribe/signup/$1';
-	$route['inschrijven/getperiod/(:num)/(:any)'] = 'subscribe/getperiod/$1/$2';
+	$route['inschrijven/opgeven/(:num)'] = 'subscribe/signup/$1';
+	$route['inschrijven/getperiod/(:num)/(:num)'] = 'subscribe/getperiod/$1/$2';
 	/* SUBSCRIBE */
 
 
 	/* FAQ */
 	$route['faq'] = 'faq';
 	$route['faq/(:any)'] = 'faq/view/$1';
-	//$route['faq/create'] = 'faq/create'; deze moet via cms route geregeld worden.
 	/* FAQ */
 
 
@@ -84,14 +75,17 @@
 
 	/* PROFILE/PERSONEEL */
 	$route['inschrijvingen'] = 'getsignups';
-	$route['inschrijvingen/vakken(:any)'] = 'getsignups/signups/$1';
+	$route['inschrijvingen/vakken/(:any)'] = 'getsignups/signups/$1';
 	$route['inschrijvingen/periode/(:num)/(:num)'] = 'getsignups/course_summary/$1/$2';
 	$route['inschrijvingen/vak/(:any)/(:num)/(:num)'] ='getsignups/courses/$1/$2/$3';
-	$route['vakken/excel_export/(:any)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
+	$route['vakken/excel_export/(:num)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
+
+	$route['export/get_excel'] = 'excel_export/get_excel';
+	$route['export/to_excel'] = 'excel_export/to_excel';
 
 	/* PROFILE/STUDENT */
 	$route['mijn-inschrijvingen'] = 'my_enrollment';
-	$route['mijn-inschrijvingen/uitschrijven/(:any)'] = 'my_enrollment/unroll/$1';
+	$route['mijn-inschrijvingen/uitschrijven/(:num)'] = 'my_enrollment/unroll/$1';
 	/* PROFILE */
 
 
@@ -120,11 +114,11 @@
 	$route['admin/paginas/read/(:num)'] = 'admin_pages/read';
 	$route['admin/paginas/update/(:num)'] = 'admin_pages/update';
 	/* CMS/TESTS */
-	$route['admin/tests'] = 'admin_tests';
-	$route['admin/tests/(:num)'] = 'admin_tests/index/$1';
-	$route['admin/tests/read/(:num)'] = 'admin_tests/read/$1';
-	$route['admin/tests/update/(:num)'] = 'admin_tests/update/$1';
-	$route['admin/tests/delete/(:num)'] = 'admin_tests/delete/$1';
+	$route['admin/toetsen'] = 'admin_tests';
+	$route['admin/toetsen/(:num)'] = 'admin_tests/index/$1';
+	$route['admin/toetsen/read/(:num)'] = 'admin_tests/read/$1';
+	$route['admin/toetsen/update/(:num)'] = 'admin_tests/update/$1';
+	$route['admin/toetsen/delete/(:num)'] = 'admin_tests/delete/$1';
 	/* CMS/UPLOAD */
 	$route['admin/upload'] = 'upload';
 	$route['admin/upload/do_upload'] = 'upload/do_upload';
@@ -136,8 +130,6 @@
 
 
 	$route['welcome'] = 'welcome'; /* default CI controller */
-
-
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
