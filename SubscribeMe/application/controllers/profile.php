@@ -14,7 +14,7 @@ class Profile extends MY_Controller {
 		$dmenu = new Dmenu;
 
 		$data['menu'] = $dmenu->show_menu();
-		$data['title'] = ucfirst($this->session->userdata('username'));	
+		$data['title'] = 'Profiel';	
 
 		$email = $this->membership_model->getemail($this->session->userdata('username'));
 		$name = $this->membership_model->getname($this->session->userdata('username'));

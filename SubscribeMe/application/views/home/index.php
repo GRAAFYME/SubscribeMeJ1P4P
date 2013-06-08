@@ -1,38 +1,24 @@
-<div id="home">
-	<?php
-	echo '<h2>'.$home_item['title'].'</h2>';
-	echo 'Welkom ' .$username .',<br /><br />';
-	echo $home_item['text'];
-	?>
-</div>
+<?php
+    echo '<h1>'.$home_item['title'].'</h1>';
+    echo 'Welkom ' .$username .'!';
+    echo $home_item['text'];
+?>
+
 <div id="latestnews">
-<?php foreach ($news as $news_item): ?>
+	<h2> Laatste nieuws:</h2>
+    <?php foreach ($news as $news_item): ?>
+        <hr />        
+            <h3>
+                &nbsp;&nbsp;&nbsp;<?php echo substr($news_item['title'], 0, 25); 
+                    if(strlen($news_item['title']) > 25)    {   echo "..";  }   ?>
+            </h3>
 
-    <h2><?php echo $news_item['title'] ?></h2>
-    <div id="main">
-        <?php 
-        	$small = substr($news_item['text'], 0, 100);
-        	echo $small        	
-    	?>
-    </div>
-    <p><a href="/nieuws/<?php echo $news_item['slug'] ?>">Bekijk nieuwsbericht</a></p>
-
-<?php endforeach ?>
+                &nbsp;&nbsp;&nbsp;<?php echo substr($news_item['text'], 0, 75);      
+                    if(strlen($news_item['text']) > 75)    {   echo "..";  }   ?>
+                    
+            <p>
+                &nbsp;&nbsp;&nbsp;<a href="/nieuws/<?php echo $news_item['slug'] ?>">Lees meer..</a>
+            </p>
+        <hr />
+    <?php endforeach ?>
 </div>
-<!-- This should be loaded from DB -->
-<div id="links">
-<p><b>Handige links</b></p>
-<ul>
-	<li><a href="http://www.nhl.nl" target="_blank">NHL</a></li>
-	<li><a href="http://www.mijnnhl.nl" target="_blank">Mijn NHL</li>
-	<li><a href="http://elo.nhl.nl" target="_blank">Blackboard</a></li>
-	<li><a href="http://educator.nhl.nl" target="_blank">Educator</a></li>
-	<li>Mail
-		<ul>
-			<li><a href="https://exchange.nhl.nl/owa/" target="_blank">Medewerkers Mail</a></li>
-			<li><a href="http://mail.student.nhl.nl/" target="_blank">Studenten Mail</a></li>
-		</ul>
-	</li>
-</ul>
-</div>
-<?php print_r($this->session->userdata); ?>

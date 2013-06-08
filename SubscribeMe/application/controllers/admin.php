@@ -13,6 +13,7 @@ class Admin extends AD_Controller {
 
 		$data['menu'] = $amenu->show_menu();
 		$data['title'] = 'Administratie';
+		$data['username'] = ucfirst($this->session->userdata('username'));
 
 		$this->load->view('templates/backend/header', $data);
 		$this->load->view('admin/index');
