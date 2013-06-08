@@ -47,7 +47,7 @@ class Profile extends MY_Controller {
 			$data['email'] = $email;
 
 			$this->load->view('templates/frontend/header', $data);
-			$this->load->view('profile/index', $data);
+			$this->load->view('profile/student', $data);
 			$this->load->view('templates/frontend/footer');
 		}
 	}

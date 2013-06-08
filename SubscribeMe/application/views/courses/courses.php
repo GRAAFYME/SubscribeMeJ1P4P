@@ -5,15 +5,15 @@
         <th>Periode</th>
         <th>test</th>
     </tr>
-<?php foreach ($xml as $xml_list): ?>
+<?php foreach ($courses as $row): ?>
 
 <div id="main">
     <?php
-        $course_name = substr($xml_list['course_name'], 0,100);
-        $year = substr($xml_list['year'],0,100);
-        $period = substr($xml_list['period'],0,100);
-        $test = substr($xml_list['test'],0,100);
-        $id = substr($xml_list['id'],0,100);
+        $course_name = substr($row['course_name'], 0,100);
+        $year = substr($row['year'],0,100);
+        $period = substr($row['period'],0,100);
+        $test = substr($row['test'],0,100);
+        $id = substr($row['id'],0,100);
 
 
         echo "<tr>";

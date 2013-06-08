@@ -66,7 +66,7 @@ class Login extends CI_Controller {
 				}
 			}
 			else // wachtwoord onjuist
-			{
+			{	
 				$this->index();
 			}
 		}

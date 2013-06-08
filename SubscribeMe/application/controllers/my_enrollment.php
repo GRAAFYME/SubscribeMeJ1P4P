@@ -20,7 +20,7 @@ class MY_Enrollment extends MY_Controller{
 		$data['enrollments'] = $this->enrollment_model->enrollments($this->session->userdata('username'));
 
 		$this->load->view('templates/frontend/header',$data);
-		$this->load->view('profile/enrollments', $data);
+		$this->load->view('profile/student/enrollments', $data);
 		$this->load->view('templates/frontend/footer');
 
 	}

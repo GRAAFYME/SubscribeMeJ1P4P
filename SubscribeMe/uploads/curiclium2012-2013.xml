@@ -1,17 +1,395 @@
 <?xml version="1.0" encoding="utf-8"?>  
 <courses>  
     <course>  
+        <name>Analyse</name>  
+        <description>Analyse </description>
+	<year>1</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>Programmeren1</name>  
+        <description>Programmeren1</description>
+	<year>1</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course> 
+    <course>  
+        <name>Databases</name>  
+        <description>Databases 1 </description>
+	<year>1</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>1</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>1</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Programmeren2</name>  
+        <description>Programmeren 2 </description>
+	<year>1</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>1</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>1</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>1</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course> 
+    <course>  
+        <name>Programmeren3</name>  
+        <description>Programmeren 3</description>
+	<year>1</year>
+	<period> 3 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
         <name>CO1</name>  
         <description>Computer Organisatie 1 </description>
 	<year>1</year>
 	<period> 1 </period>
-	<toets> Deeltoets 1 </toets>
+	<toets>Deeltoets 1</toets>
    </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>1</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>1</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course>  
+    <course>  
+        <name>Engels</name>  
+        <description>Engels</description>
+	<year>1</year>
+	<period> 4 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>Analyse</name>  
+        <description>Analyse </description>
+	<year>2</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>Programmeren1</name>  
+        <description>Programmeren1</description>
+	<year>2</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course> 
+    <course>  
+        <name>Databases</name>  
+        <description>Databases 1 </description>
+	<year>2</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
     <course>  
         <name>DiWi</name>  
         <description>Discrete Wiskunde </description>
 	<year>2</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>2</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Programmeren2</name>  
+        <description>Programmeren 2 </description>
+	<year>2</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>2</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>2</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>2</year>
 	<period> 3 </period>
-	<toets> Deeltoets 2 </toets>
+	<toets>Deeltoets 3</toets>
+   </course> 
+    <course>  
+        <name>Programmeren3</name>  
+        <description>Programmeren 3</description>
+	<year>2</year>
+	<period> 3 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>2</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
    </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>2</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>2</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course>  
+    <course>  
+        <name>Engels</name>  
+        <description>Engels</description>
+	<year>2</year>
+	<period> 4 </period>
+	<toets>Tentamen</toets>
+   </course>  
+    <course>  
+        <name>Analyse</name>  
+        <description>Analyse </description>
+	<year>3</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>Programmeren1</name>  
+        <description>Programmeren1</description>
+	<year>3</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course> 
+    <course>  
+        <name>Databases</name>  
+        <description>Databases 1 </description>
+	<year>3</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>3</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>3</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Programmeren2</name>  
+        <description>Programmeren 2 </description>
+	<year>3</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>3</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>3</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>3</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course> 
+    <course>  
+        <name>Programmeren3</name>  
+        <description>Programmeren 3</description>
+	<year>3</year>
+	<period> 3 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>3</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>3</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>3</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course>  
+    <course>  
+        <name>Engels</name>  
+        <description>Engels</description>
+	<year>3</year>
+	<period> 4 </period>
+	<toets>Tentamen</toets>
+   </course>  
+    <course>  
+        <name>Analyse</name>  
+        <description>Analyse </description>
+	<year>4</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>Programmeren1</name>  
+        <description>Programmeren1</description>
+	<year>4</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course> 
+    <course>  
+        <name>Databases</name>  
+        <description>Databases 1 </description>
+	<year>4</year>
+	<period> 1 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>4</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>DiWi</name>  
+        <description>Discrete Wiskunde </description>
+	<year>4</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Programmeren2</name>  
+        <description>Programmeren 2 </description>
+	<year>4</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>4</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>4</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course> 
+    <course>  
+        <name>Wiskunde</name>  
+        <description>Wiskunde Basis </description>
+	<year>4</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course> 
+    <course>  
+        <name>Programmeren3</name>  
+        <description>Programmeren 3</description>
+	<year>4</year>
+	<period> 3 </period>
+	<toets>Tentamen</toets>
+   </course>
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>4</year>
+	<period> 1 </period>
+	<toets>Deeltoets 1</toets>
+   </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>4</year>
+	<period> 2 </period>
+	<toets>Deeltoets 2</toets>
+   </course>  
+    <course>  
+        <name>CO1</name>  
+        <description>Computer Organisatie 1 </description>
+	<year>4</year>
+	<period> 3 </period>
+	<toets>Deeltoets 3</toets>
+   </course>  
+    <course>  
+        <name>Engels</name>  
+        <description>Engels</description>
+	<year>1</year>
+	<period> 4 </period>
+	<toets>Tentamen</toets>
+   </course>   
 </courses>

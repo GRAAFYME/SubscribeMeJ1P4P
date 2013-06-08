@@ -43,13 +43,11 @@ class Xmlparser_model extends CI_Model {
 			$this->db->from('courses');
 			$this->db->where('short_name', (string)$course->name);
 			$d = $this->db->get();
-			$e = $d->row_array();
-			$f = $e['short_name'];
 
 			if($d->num_rows() > 0)
 			{
 				$data = array(
-					'course_name' => (string)$f,
+					'course_name' => (string)$course->name,
 					'year' => (int)$course->year,
 					'period' => (int)$course->period,
 					'test' => (string)$course->toets
