@@ -1,4 +1,4 @@
-<table border ="1"> 
+<table class="default_table"> 
     <tr>
         <th>Vak</th>
         <th>Jaar</th>
@@ -7,7 +7,6 @@
     </tr>
 <?php foreach ($xml as $xml_list): ?>
 
-<div id="main">
     <?php
         $course_name = substr($xml_list['course_name'], 0,100);
         $year = substr($xml_list['year'],0,100);
@@ -24,12 +23,7 @@
          echo "</tr>";
         ?>
         <?php echo form_open_multipart('subscribe/signup/'.$id);?>
-
-    </div>
-
 <?php endforeach?>
 </table>
-
 <input type="submit" value="Schrijf in" />
-
     

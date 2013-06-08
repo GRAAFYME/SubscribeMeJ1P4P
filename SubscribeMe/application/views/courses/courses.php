@@ -1,13 +1,13 @@
-<table border ="1"> 
+<table class="default_table"> 
     <tr>
         <th>Vak</th>
         <th>Jaar</th>
         <th>Periode</th>
-        <th>test</th>
+        <th>toets</th>
     </tr>
 <?php foreach ($courses as $row): ?>
 
-<div id="main">
+
     <?php
         $course_name = substr($row['course_name'], 0,100);
         $year = substr($row['year'],0,100);
@@ -23,7 +23,7 @@
         echo "<td>". $test ."</td>";
         echo "</tr>";
         ?>
-    </div>
+
 
 <?php endforeach?>
 </table>

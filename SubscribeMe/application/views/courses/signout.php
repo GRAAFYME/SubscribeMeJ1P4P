@@ -1,4 +1,4 @@
-<table border ="1"> 
+<table class="default_table"> 
     <tr>
         <th>Vak</th>
         <th>Jaar</th>

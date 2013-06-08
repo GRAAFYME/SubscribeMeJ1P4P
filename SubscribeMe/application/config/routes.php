@@ -85,7 +85,7 @@
 	/* PROFILE/PERSONEEL */
 	$route['inschrijvingen'] = 'getsignups';
 	$route['inschrijvingen/vakken(:any)'] = 'getsignups/signups/$1';
-	$route['inschrijvingen/periode/(:num)/(:num)'] = 'getsignups/course_summary/$1/$2';
+	$route['inschrijvingen/periode/(:any)/(:num)'] = 'getsignups/course_summary/$1/$2';
 	$route['inschrijvingen/vak/(:any)/(:num)/(:num)'] ='getsignups/courses/$1/$2/$3';
 	$route['vakken/excel_export/(:any)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
 

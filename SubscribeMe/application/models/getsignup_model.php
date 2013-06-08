@@ -22,8 +22,11 @@ class Getsignup_model extends CI_Model {
 	public function get_year_period($year,$period)
 	{
 		
-		$query = $this->db->get_where('signups', array('year' => $year));
-		$query = $this->db->get_where('signups', array('period' => $period));
+		$this->db->select('*');
+		$this->db->from('signups');
+		$this->db->where(array('year' => $year));
+		$this->db->where(array('period' => $period));
+		$query = $this->db->get();
 		return $query->result_array();
 	}
 
