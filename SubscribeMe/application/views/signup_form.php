@@ -1,14 +1,19 @@
-<div id="register_form">
-	<h1>Maak een account</h1>
-	<?php
-	echo form_open('login/create_member');
-	echo form_input('first_name', set_value('first_name', 'First Name'));
-	echo form_input('last_name', set_value('last_name', 'Last Name'));
-	echo form_input('email', set_value('email', 'Email Address'));
-	echo form_input('username', set_value('username', 'Username'));
-	echo form_password('password', '', 'placeholder="password" class="password"');
-	echo form_password('password_confirm','','placeholder="Confirm Password" class="password"');
-	echo form_submit('submit', 'Create Account');
-	?>
-	<?php echo validation_errors('<p class="error">'); ?>
-</div><!--end register form-->
+<br /><br />
+<h1>Maak een account</h1>
+<?php
+echo form_open('login/create_member');
+echo form_input('first_name', '', 'placeholder="Voornaam" class="boxes"');
+echo form_input('last_name', '', 'placeholder="Achternaam" class="boxes"');
+echo form_input('email', '', 'placeholder="E-mail" class="boxes"');
+echo form_input('username', '', 'placeholder="Gebruikersnaam" class="boxes"');
+echo form_password('password', '', 'placeholder="Wachtwoord" class="boxes"');
+echo form_password('password_confirm', '','placeholder="Bevestig wachtwoord" class="boxes"');
+echo form_submit('submit', 'Create Account');
+echo form_close();
+echo validation_errors(); 
+if($show_error_message == TRUE)
+{
+	echo $error_message;
+}
+?>
+<h3>Storing of vraag? Bel support 058-251 2552</h3>

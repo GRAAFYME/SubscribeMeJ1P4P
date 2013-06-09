@@ -1,20 +1,22 @@
 <?php
 
-class Upload extends MY_Controller {
+class Upload extends AD_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form','url'));
-		$this->load->library('dmenu');
+
+		$this->load->library('amenu');
+
 		$this->load->helper('file');
 	}
 
 	function index()
 	{
-		$dmenu = new Dmenu;
+		$amenu = new Amenu;
 		
-		$data['menu'] = $dmenu->show_menu();
+		$data['menu'] = $amenu->show_menu();
 		$data['title'] = 'Upload';
 
 
@@ -30,9 +32,9 @@ class Upload extends MY_Controller {
 
 		$this->load->library('upload', $config);
 
-		$dmenu = new Dmenu;
+		$amenu = new Amenu;
 		
-		$data['menu'] = $dmenu->show_menu();
+		$data['menu'] = $amenu->show_menu();
 		$data['title'] = 'Upload';
 
 		if(!$this->upload->do_upload())
@@ -49,9 +51,9 @@ class Upload extends MY_Controller {
 			$data['title'] = 'Upload section';
 			$data = get_filenames("uploads");
 			$data['file'] = end($data);
-			$dmenu = new Dmenu;
+			$amenu = new Amenu;
 		
-			$data['menu'] = $dmenu->show_menu();
+			$data['menu'] = $amenu->show_menu();
 
 			$this->load->view('templates/backend/header', $data);
 			$this->load->view('admin/upload/are_you_sure', $data);

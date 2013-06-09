@@ -2,15 +2,15 @@
 
 /*
 |--------------------------------------------------------------------------
-| PS_Controller
+| PE_Controller
 |--------------------------------------------------------------------------
 |
-| This class (PS_Controller) is protecting the webpages 
+| This class (PE_Controller) is protecting the webpages 
 | from unauthorised access.
 |
 */
 
-class PS_Controller extends MY_Controller 
+class PE_Controller extends MY_Controller 
 {
     function __construct()
     {
@@ -23,5 +23,5 @@ class PS_Controller extends MY_Controller
     }
 }
 
-/* End of file PS_Controller.php */
-/* Location: ./application/core/PS_Controller.php */
+/* End of file PE_Controller.php */
+/* Location: ./application/core/PE_Controller.php */

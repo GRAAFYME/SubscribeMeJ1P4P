@@ -1,8 +1,13 @@
-body
+body 
 {
-	margin-top: 80px;
-	font-family: Arial, Helvetica, sans-serif;
-	background: #EEEEEE;
+	background-color: #EEEEEE;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+body, img
+{
+    border: 0px;
 }
 
 h1
@@ -27,31 +32,41 @@ h3
 	font-size: 20px;
 }
 
-#Form
+#container
 {
-	border:#E2E2E2 1px solid;
-	width: 505px;
-	height: 335px;
-	margin-left: auto ;
-	margin-right: auto ;
-	border-radius: 10px 10px 10px 10px;
-	box-shadow: rgba(0,0,0,0.5) 0px 10px 10px -2px;
-	box-shadow: 0px 3px 8px -1px;
-	box-shadow: 0px 3px 8px -1px;
+    height: 435px;
+    width: 525px;
+    margin: 0px auto 0px auto;
+}
 
+#content
+{
 	background-image: -o-linear-gradient(top, #FFFFFF 0%, #FFFFFF 54%, #FFFFFF 77%, #F0F0F0 89%, #EBEBEB 95%);
 	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #FFFFFF 54%, #FFFFFF 77%, #F0F0F0 89%, #EBEBEB 95%);
 	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #FFFFFF 54%, #FFFFFF 77%, #F0F0F0 89%, #EBEBEB 95%);
 	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #FFFFFF 54%, #FFFFFF 77%, #F0F0F0 89%, #EBEBEB 95%);
-
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(0.54, #FFFFFF),color-stop(0.77, #FFFFFF),
-																						  color-stop(0.89, #F0F0F0),color-stop(0.95, #EBEBEB));																				  
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #FFFFFF),color-stop(0.54, #FFFFFF),color-stop(0.77, #FFFFFF),color-stop(0.89, #F0F0F0),color-stop(0.95, #EBEBEB));	 																			  
 	background-image: linear-gradient(top, #FFFFFF 0%, #FFFFFF 54%, #FFFFFF 77%, #F0F0F0 89%, #EBEBEB 95%);
+
+	min-height: 265px;
+	height: auto;
+	width: 435px;	
+
+	margin: 80px auto 0px auto;
+	padding: 35px 35px 35px 35px;
+
+	border-radius: 10px 10px 10px 10px;
+	border:#E2E2E2 1px solid;
+
+	box-shadow: 0px 3px 8px -1px;
+    -moz-box-shadow: 0px 3px 8px -1px;
+    -webkit-box-shadow: 0px 3px 8px -1px;
 }
+
 .boxes
 {
-	width: 200px;
-	height: 25px;
+	width: 204px;
+	height: 31px;
 }
 
 .button
@@ -63,22 +78,9 @@ h3
 	margin-right: 10px;
 }
 
-#padding
-{
-	margin-top: 0px;
-	padding: 35px;
-}
-
-
-.shadow {
-	-moz-box-shadow: 0 0 30px 5px #999;
-	-webkit-box-shadow: 0 0 30px 5px #999;
-}
-
-#logo
+.nhllogob
 {
 	float: right;
 	width: 110px;
 	height: 80px;
 }
-

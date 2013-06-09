@@ -14,7 +14,7 @@ class Profile extends MY_Controller {
 		$dmenu = new Dmenu;
 
 		$data['menu'] = $dmenu->show_menu();
-		$data['title'] = ucfirst($this->session->userdata('username'));	
+		$data['title'] = 'Profiel';	
 
 		$email = $this->membership_model->getemail($this->session->userdata('username'));
 		$name = $this->membership_model->getname($this->session->userdata('username'));
@@ -33,18 +33,26 @@ class Profile extends MY_Controller {
 
 		else if($this->session->userdata('role') == "personeel")
 		{
-			$data['name'] = $name;
-			$data['email'] = $email;
+			/* LDAP 
+			| $data['name'] = $name;
+			| $data['email'] = $email;
+			*/
+			$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
+			$data['email'] = $email['email'];
 
 			$this->load->view('templates/frontend/header', $data);
 			$this->load->view('profile/personeel', $data);
 			$this->load->view('templates/frontend/footer');
 		}
 
-		else
+		else if($this->session->userdata('role') == "student")
 		{
-			$data['name'] = $name;
-			$data['email'] = $email;
+			/* LDAP 
+			| $data['name'] = $name;
+			| $data['email'] = $email;
+			*/
+			$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
+			$data['email'] = $email['email'];
 
 			$this->load->view('templates/frontend/header', $data);
 			$this->load->view('profile/student', $data);

@@ -1,5 +1,5 @@
 <?php
-class Subscribe extends MY_Controller {
+class Subscribe extends ST_Controller {
 //class constructor
 	public function __construct()
 	{

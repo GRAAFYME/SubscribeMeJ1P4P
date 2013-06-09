@@ -4,15 +4,18 @@ class Admin extends AD_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->library('amenu');
+
+		$this->load->library('amenu'); // Load library(s)
 	}
 
 	public function index()
 	{
+		// Load view
 		$amenu = new Amenu;
 
 		$data['menu'] = $amenu->show_menu();
 		$data['title'] = 'Administratie';
+		$data['username'] = ucfirst($this->session->userdata('username'));
 
 		$this->load->view('templates/backend/header', $data);
 		$this->load->view('admin/index');

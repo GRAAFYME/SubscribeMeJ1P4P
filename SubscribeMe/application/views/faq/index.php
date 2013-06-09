@@ -1,11 +1,8 @@
+<h1><?php echo $title ?></h1>
 <?php foreach ($faq as $faq_item): ?>
-
-    <h3><a href="/faq/<?php echo $faq_item['slug'] ?>"><?php echo substr($faq_item['question'], 0, 50);
-    if(strlen($faq_item['question']) > 50)
-    	{
-    		echo "..";
-    	}
-    	?>
-    </a></h3>
-
+	<hr />	
+	    &nbsp;&nbsp;&nbsp;
+	    <a href="/faq/<?php echo $faq_item['slug'] ?>"><?php echo substr($faq_item['question'], 0, 100); 
+				if(strlen($faq_item['question']) > 100)    {   echo "..";  }   ?></a>
+    <hr />
 <?php endforeach ?>

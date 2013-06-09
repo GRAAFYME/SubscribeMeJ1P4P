@@ -8,11 +8,7 @@ class Dmenu {
     $obj->load->helper('url');
     $dmenu = "<ul>";
       $dmenu .= "<li>"; $dmenu .= anchor("/","Home"); $dmenu .= "</li>";
-      $dmenu .= "<li>"; $dmenu .= anchor("/nieuws", "Nieuws");
-        $dmenu .= "<ul>";
-          $dmenu .= "<li>"; $dmenu .= anchor("/nieuws/create", "Create"); $dmenu .= "</li>";
-        $dmenu .= "</ul>";
-      $dmenu .= "</li>";
+      $dmenu .= "<li>"; $dmenu .= anchor("/nieuws", "Nieuws"); $dmenu .= "</li>";
       $dmenu .= "<li>"; $dmenu .= anchor("/inschrijven/", "Inschrijven");
         $dmenu .= "<ul>";
           $dmenu .= "<li>"; $dmenu .= anchor("/inschrijven/get/1", "Jaar 1"); 
@@ -52,7 +48,6 @@ class Dmenu {
       $dmenu .= "<li>"; $dmenu .= anchor("/faq","FAQ"); $dmenu .= "</li>";
       $dmenu .= "<li>"; $dmenu .= anchor("/profiel", "Profiel");
         $dmenu .= "<ul>"; 
-          $dmenu .= "<li>"; $dmenu .= anchor("/mijn-inschrijvingen","Mijn inschrijvingen"); $dmenu .= "</li>";
           $dmenu .= "<li>"; $dmenu .= anchor("/uitloggen","Uitloggen"); $dmenu .= "</li>";
         $dmenu .= "</ul>";
       $dmenu .= "</li>";

@@ -15,7 +15,7 @@ class News extends MY_Controller {
 
 		$data['menu'] = $dmenu->show_menu();
 		$data['news'] = $this->news_model->get_news();
-		$data['title'] = 'News archive';
+		$data['title'] = 'Nieuws';
 
 		$this->load->view('templates/frontend/header', $data);
 		$this->load->view('news/index', $data);
