@@ -76,7 +76,7 @@
 	/* PROFILE/PERSONEEL */
 	$route['inschrijvingen'] = 'getsignups';
 	$route['inschrijvingen/vakken/(:any)'] = 'getsignups/signups/$1';
-	$route['inschrijvingen/periode/(:any)/(:num)'] = 'getsignups/course_summary/$1/$2';
+	$route['inschrijvingen/periode/(:num)/(:num)'] = 'getsignups/course_summary/$1/$2';
 	$route['inschrijvingen/vak/(:any)/(:num)/(:num)'] ='getsignups/courses/$1/$2/$3';
 	$route['vakken/excel_export/(:num)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
 
@@ -113,12 +113,14 @@
 	$route['admin/paginas/(:num)'] = 'admin_pages/index/$1';
 	$route['admin/paginas/read/(:num)'] = 'admin_pages/read';
 	$route['admin/paginas/update/(:num)'] = 'admin_pages/update';
+
 	/* CMS/TESTS */
 	$route['admin/toetsen'] = 'admin_tests';
 	$route['admin/toetsen/(:num)'] = 'admin_tests/index/$1';
 	$route['admin/toetsen/read/(:num)'] = 'admin_tests/read/$1';
 	$route['admin/toetsen/update/(:num)'] = 'admin_tests/update/$1';
 	$route['admin/toetsen/delete/(:num)'] = 'admin_tests/delete/$1';
+
 	/* CMS/UPLOAD */
 	$route['admin/upload'] = 'upload';
 	$route['admin/upload/do_upload'] = 'upload/do_upload';

@@ -4,13 +4,15 @@ class News extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('news_model');
-		$this->load->library('dmenu');	
-		$this->load->library('amenu');
+
+		$this->load->model('news_model'); // Load model(s)
+
+		$this->load->library('dmenu'); // Load library(s)
 	}
 
 	public function index()
 	{
+		// Load view
 		$dmenu = new Dmenu;
 
 		$data['menu'] = $dmenu->show_menu();
@@ -32,6 +34,7 @@ class News extends MY_Controller {
 		}
 		else // News item DOES exitst!
 		{	
+			// Load view
 			$dmenu = new Dmenu;
 
 			$data['menu'] = $dmenu->show_menu();

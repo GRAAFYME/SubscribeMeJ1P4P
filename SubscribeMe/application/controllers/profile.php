@@ -33,12 +33,16 @@ class Profile extends MY_Controller {
 
 		else if($this->session->userdata('role') == "personeel")
 		{
-			/* LDAP 
-			| $data['name'] = $name;
-			| $data['email'] = $email;
-			*/
-			$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
-			$data['email'] = $email['email'];
+			if($this->session->userdata('username') == "personeel")
+			{
+				$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
+				$data['email'] = $email['email'];
+			}
+			else
+			{
+				$data['name'] = $name;
+			 	$data['email'] = $email;
+			}
 
 			$this->load->view('templates/frontend/header', $data);
 			$this->load->view('profile/personeel', $data);
@@ -47,12 +51,16 @@ class Profile extends MY_Controller {
 
 		else if($this->session->userdata('role') == "student")
 		{
-			/* LDAP 
-			| $data['name'] = $name;
-			| $data['email'] = $email;
-			*/
-			$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
-			$data['email'] = $email['email'];
+			if($this->session->userdata('username') == "student")
+			{
+				$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
+				$data['email'] = $email['email'];
+			}
+			else
+			{
+				$data['name'] = $name;
+			 	$data['email'] = $email;
+			}
 
 			$this->load->view('templates/frontend/header', $data);
 			$this->load->view('profile/student', $data);

@@ -5,8 +5,6 @@
 	<!-- stylesheets -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/main.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/menu.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/login.css" />
-
 </head>
 <body>
 	<div id="container"><!-- Start Container -->

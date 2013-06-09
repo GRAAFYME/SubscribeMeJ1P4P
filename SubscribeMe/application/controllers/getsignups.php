@@ -9,7 +9,6 @@ class Getsignups extends PE_Controller {
 		$this->load->library('dmenu'); // Load library(s)
 
 		$this->load->model('getsignup_model'); // Load model(s)
-
 	}
 
 	// Shows all the availible courses

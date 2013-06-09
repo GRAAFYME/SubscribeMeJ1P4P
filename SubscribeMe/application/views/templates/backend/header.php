@@ -5,9 +5,7 @@
 	<!-- stylesheets -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/main.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/menu.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/crud.css" />
-    
-
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/crud.css" /> 
 </head>
 <body>
 	<div id="container"><!-- Start Container -->
