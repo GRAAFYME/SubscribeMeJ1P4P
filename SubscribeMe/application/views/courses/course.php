@@ -8,12 +8,11 @@
 <?php foreach ($xml as $xml_list): ?>
 
     <?php
-        $course_name = substr($xml_list['course_name'], 0,100);
-        $year = substr($xml_list['year'],0,100);
-        $period = substr($xml_list['period'],0,100);
-        $test = substr($xml_list['test'],0,100);
-        $id = substr($xml_list['id'],0,100);
-
+        $course_name = $xml_list['course_name'];
+        $year = $xml_list['year'];
+        $period = $xml_list['period'];
+        $test = $xml_list['test'];
+        $id = $xml_list['id'];
 
         echo "<tr>";
         echo "<td>". $course_name."</td>";

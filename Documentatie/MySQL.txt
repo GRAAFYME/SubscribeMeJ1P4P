@@ -1,83 +1,72 @@
-CREATE TABLE news
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-title varchar(250) NOT NULL,
-author varchar(50) NOT NULL,
-date varchar(50) NOT NULL,
-message text NOT NULL
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `session_id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(45) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL,
+  PRIMARY KEY (`session_id`),
+  KEY `last_activity_idx` (`last_activity`)
 )
 
-CREATE TABLE ec_cat
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(50) NOT NULL UNIQUE
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `first_name` varchar(40) NOT NULL,
+  `last_name` varchar(40) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
 )
 
-
-CREATE TABLE faq_cat
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(50) NOT NULL UNIQUE
+CREATE TABLE IF NOT EXISTS `pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `page` varchar(128) NOT NULL,
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`)
 )
 
-CREATE TABLE links_cat
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(50) NOT NULL UNIQUE
+CREATE TABLE IF NOT EXISTS `faq` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `question` varchar(128) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `answer` text NOT NULL,
+  PRIMARY KEY (`id`)
 )
 
-CREATE TABLE roles
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(50) NOT NULL UNIQUE
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `slug` varchar(128) NOT NULL,
+  `text` text NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
 )
 
-CREATE TABLE ec
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-name varchar(250) NOT NULL,
-cat_id int NOT NULL,
-description text NOT NULL,
-date varchar(50) NOT NULL,
-enrollments text,
-FOREIGN KEY (cat_id) REFERENCES ec_cat(id)
+CREATE TABLE IF NOT EXISTS `courses` (
+  `short_name` varchar(128) NOT NULL,
+  `full_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`short_name`)
 )
 
-CREATE TABLE faq
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-question text NOT NULL,
-answer text NOT NULL,
-cat_id int NOT NULL,
-FOREIGN KEY (cat_id) REFERENCES faq_cat(id)
+CREATE TABLE IF NOT EXISTS `tests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `course_name` varchar(128) NOT NULL,
+  `year` int(11) NOT NULL,
+  `period` int(11) NOT NULL,
+  `test` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`course_name`) REFERENCES `courses` (`short_name`)
 )
 
-CREATE TABLE links
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-title varchar(250) NOT NULL,
-href varchar(250) NOT NULL,
-cat_id int NOT NULL,
-FOREIGN KEY (cat_id) REFERENCES links_cat(id)
+CREATE TABLE IF NOT EXISTS `signups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `test_id` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `course_name` varchar(128) NOT NULL,
+  `year` int(11) NOT NULL,
+  `period` int(11) NOT NULL,
+  `test` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`test_id`) REFERENCES `tests` (`id`)
 )
-
-CREATE TABLE users
-(
-id int PRIMARY KEY AUTO_INCREMENT NOT NULL,
-username varchar(50) NOT NULL UNIQUE,
-password varchar(50) NOT NULL,
-email varchar(255) NOT NULL UNIQUE,
-rol_id int NOT NULL,
-FOREIGN KEY (rol_id) REFERENCES roles(id)
-)
-
-
-// INSERT USERS:
-
-INSERT INTO roles (name) VALUES ('administrator')
-INSERT INTO roles (name) VALUES ('teacher')
-INSERT INTO roles (name) VALUES ('student')
-
-INSERT INTO `subscribeme`.`users` (`id`, `username`, `password`, `email`, `rol_id`) VALUES ('1', 'admin', 'P@ssword', 'admin@subscribeme.nl', '1'), 
-											   ('2', 'teacher', 'P@ssword', 'teacher@subscribeme.nl', '2'), 
-											   ('3', 'student', 'P@ssword','student@subscribeme.nl', '3');

@@ -6,6 +6,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/main.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/menu.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/crud.css" /> 
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="<?php echo base_url()?>images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 	<div id="container"><!-- Start Container -->

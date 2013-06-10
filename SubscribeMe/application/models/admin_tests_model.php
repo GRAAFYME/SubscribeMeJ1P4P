@@ -33,22 +33,13 @@ class Admin_tests_model extends CI_Model {
 
 	public function update($id)
 	{	
-		$entry = array('course_name' => $this->input->post('course'),
+		$entry = array('course_name' => $this->input->post('course_name'),
 						'year' => $this->input->post('year'),
 						'period' => $this->input->post('period'),
 						'test' => $this->input->post('test')
 						);
 		$this->db->where('id', $id);
 		$this->db->update('tests', $entry);
-
-		if($this->db->affected_rows() == 1)
-		{
-			return TRUE;
-		}
-		else
-		{
-			return FALSE;
-		}
 	}
 	
 	public function delete($id) 

@@ -1,7 +1,7 @@
-div.content {
+div.crud {
     padding:10px 20px;
 }
-div.content h1 {
+div.crud h1 {
     font-size:18pt;
     border-bottom:3px solid #a00;
     padding:0px;
@@ -9,25 +9,25 @@ div.content h1 {
     width:100%;
 }
  
-div.content div.data table {
+div.crud div.data table {
     border:2px solid #000;
     background:#fff;
     width:100%;
     margin: 0px auto 0px auto;
 }
-div.content div.data table td {
+div.crud div.data table td {
     font-size:10pt;
     padding:5px 10px;
     border-bottom:1px solid #ddd;
     text-align: left;
 }
-div.content div.data table th {
+div.crud div.data table th {
     text-align: left;
     font-size: 8pt;
     padding: 10px 10px 7px;
     text-transform: uppercase;
     color: white;
-    background:url(/images/crud/head.gif) left -5px repeat-x;
+    background:url(../images/crud/head.gif) left -5px repeat-x;
 }
  
 div.paging {
@@ -48,7 +48,7 @@ div.paging b {
  
 div.success {
     font-size:14pt;
-    background:url(/images/crud/accept.png) left 5px no-repeat;
+    background:url(../images/crud/accept.png) left 5px no-repeat;
     padding:0px;
     padding-left:20px;
     margin:0px 0px 10px;
@@ -64,19 +64,19 @@ a.update, a.delete, a.add, a.view, a.back {
     text-decoration: none;
 }
 a.update {
-    background:url(/images/crud/update.png) left center no-repeat;
+    background:url(../images/crud/update.png) left center no-repeat;
 }
 a.delete {
-    background:url(/images/crud/delete.png) left center no-repeat;
+    background:url(../images/crud/delete.png) left center no-repeat;
 }
 a.add {
-    background:url(/images/crud/add.png) left center no-repeat;
+    background:url(../images/crud/add.png) left center no-repeat;
 }
 a.view {
-    background:url(/images/crud/view.png) left center no-repeat;
+    background:url(../images/crud/view.png) left center no-repeat;
 }
 a.back {
-    background:url(/images/crud/prev.gif) left center no-repeat;
+    background:url(../images/crud/prev.gif) left center no-repeat;
 }
 a.update:hover, a.delete:hover, a.add:hover, a.view:hover {
     color:#000;

@@ -17,6 +17,6 @@
 	</tr>
 </table>
 <ul>
-	<li><a href="/admin">Administratie</a></li>
-	<li><a href="/uitloggen">Uitloggen</a></li>
+	<li><a href="<?php echo base_url()?>admin">Administratie</a></li>
+	<li><a href="<?php echo base_url()?>uitloggen">Uitloggen</a></li>
 </ul>

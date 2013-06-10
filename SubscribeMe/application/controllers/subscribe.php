@@ -10,32 +10,55 @@ class Subscribe extends ST_Controller {
 		$this->load->model('xmlparser_model');
 		$this->load->model('subscribe_model');
 		$this->load->model('enrollment_model');
+		$this->load->model('page_model');
 	}
 //This function loads all the available tests 
 	public function index()
 	{
-		$dmenu = new Dmenu;
-		$data['menu'] = $dmenu->show_menu();
-		$data['courses'] = $this->subscribe_model->getall();
+		$data['subscribe_item'] = $this->page_model->get_subscribe();
 
-		$this->load->view('templates/frontend/header',$data);
-		$this->load->view('courses/courses',$data);
-		$this->load->view('templates/frontend/footer');
+		if (empty($data['subscribe_item'])) // Subscribe item DOESN'T exitst!
+		{
+			show_404();
+		}
+		else // Subscribe item DOES exitst!
+		{	
+			// Load view
+			$dmenu = new Dmenu;
+
+			$data['menu'] = $dmenu->show_menu();
+			$data['title'] = $data['subscribe_item']['title'];
+
+			$data['courses'] = $this->subscribe_model->getall();
+
+			$this->load->view('templates/frontend/header',$data);
+			$this->load->view('courses/courses',$data);
+			$this->load->view('templates/frontend/footer');
+		}
 	}
 //gets all the tests by year
  	public function get($year)
  	{
+		$data['subscribe_item'] = $this->page_model->get_subscribe();
 
- 		
-		$dmenu = new Dmenu;
-		$data['menu'] = $dmenu->show_menu();
- 		
+		if (empty($data['subscribe_item'])) // Subscribe item DOESN'T exitst!
+		{
+			show_404();
+		}
+		else // Subscribe item DOES exitst!
+		{	
+			// Load view
+			$dmenu = new Dmenu;
 
- 		$data['courses'] = $this->subscribe_model->getxml($year);
+			$data['menu'] = $dmenu->show_menu();
+			$data['title'] = $data['subscribe_item']['title'];
 
- 		$this->load->view('templates/frontend/header',$data);
-		$this->load->view('courses/courses',$data);
-		$this->load->view('templates/frontend/footer');
+			$data['courses'] = $this->subscribe_model->getxml($year);
+
+			$this->load->view('templates/frontend/header',$data);
+			$this->load->view('courses/courses',$data);
+			$this->load->view('templates/frontend/footer');
+		}
  	}
 
  	public function course($id)
@@ -60,24 +83,39 @@ class Subscribe extends ST_Controller {
 
  	public function signup($id)
  	{
- 	  $dmenu = new Dmenu;
- 	  $data['menu'] = $dmenu->show_menu();
- 	  $this->subscribe_model ->signup($id);
+ 		$this->subscribe_model ->signup($id);
 
- 	  $this->load->view('templates/frontend/header', $data);
- 	  $this->load->view('courses/signup');
- 	  $this->load->view('templates/frontend/footer');
+	 	  $dmenu = new Dmenu;
+	 	  $data['menu'] = $dmenu->show_menu();
+	 	  $data['title'] = 'Inschrijven';
+
+	 	  $this->load->view('templates/frontend/header', $data);
+	 	  $this->load->view('courses/signup');
+	 	  $this->load->view('templates/frontend/footer');
  	}
  	
  	public function getperiod($year, $period)
  	{
- 		$dmenu = new Dmenu;
- 		$data['menu'] = $dmenu->show_menu();
- 		$data['courses'] = $this->subscribe_model->getperiod($year, $period);
+		$data['subscribe_item'] = $this->page_model->get_subscribe();
 
- 		$this->load->view('templates/frontend/header', $data);
- 		$this->load->view('courses/courses', $data);
- 		$this->load->view('templates/frontend/footer');
+		if (empty($data['subscribe_item'])) // Subscribe item DOESN'T exitst!
+		{
+			show_404();
+		}
+		else // Subscribe item DOES exitst!
+		{	
+			// Load view
+			$dmenu = new Dmenu;
+
+			$data['menu'] = $dmenu->show_menu();
+			$data['title'] = $data['subscribe_item']['title'];
+
+			$data['courses'] = $this->subscribe_model->getperiod($year, $period);
+
+			$this->load->view('templates/frontend/header',$data);
+			$this->load->view('courses/courses',$data);
+			$this->load->view('templates/frontend/footer');
+		}
  	}
 
  	public function unroll($id)

@@ -39,7 +39,7 @@ class Upload extends AD_Controller {
 
 		if(!$this->upload->do_upload())
 		{
-			$error= array('error'=>$this->upload->display_errors());
+			$error = array('error'=>$this->upload->display_errors());
 			
 			$this->load->view('templates/backend/header', $data);
 			$this->load->view('admin/upload/upload_form', $error);
@@ -47,10 +47,10 @@ class Upload extends AD_Controller {
 		}
 		else
 		{
-			$data = array('upload_data' => $this->upload->data());
-			$data['title'] = 'Upload section';
-			$data = get_filenames("uploads");
-			$data['file'] = end($data);
+			$file = array('upload_data' => $this->upload->data());
+			$file = get_filenames("uploads");
+			$data['file'] = end($file);
+			
 			$amenu = new Amenu;
 		
 			$data['menu'] = $amenu->show_menu();

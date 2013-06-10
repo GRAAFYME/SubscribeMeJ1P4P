@@ -42,7 +42,6 @@ class Subscribe_model extends CI_Model {
 		);
 
 		$this->db->insert('signups', $data);
-
 	}
 
 	public function getperiod($year, $period)
@@ -57,8 +56,9 @@ class Subscribe_model extends CI_Model {
 
 	public function alreadysignedup($username, $id)
 	{
-		$query = $this->db->get_where('signups', array('username' => $username));
-		$query = $this->db->get_where('signups', array('test_id' => $id));
+		$this->db->where('username', $username);
+		$this->db->where('test_id', $id);
+		$query = $this->db->get('signups'); 
 		
 		if($query->num_rows() > 0 )
 		{

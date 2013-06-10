@@ -32,9 +32,7 @@ class Getsignup_model extends CI_Model {
 
 	public function signups($id,$year,$period)
 	{
-		$query = $this->db->get_where('signups', array('course_name' => $id));
-		$query = $this->db->get_where('signups', array('year' => $year));
-		$query = $this->db->get_where('signups', array('period' => $period));
+		$query = $this->db->get_where('signups', array('course_name' => $id, 'year' => $year, 'period' => $period));
 		return $query->result_array();
 
 	}

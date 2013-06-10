@@ -15,7 +15,6 @@ class Enrollment_model extends CI_Model {
 
 	public function unroll($id)
 	{
-		$this->db->delete('signups', array('id'=>$id));
-		
+		$this->db->delete('signups', array('id'=>$id));		
 	}
 }

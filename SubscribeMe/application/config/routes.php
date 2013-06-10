@@ -78,10 +78,8 @@
 	$route['inschrijvingen/vakken/(:any)'] = 'getsignups/signups/$1';
 	$route['inschrijvingen/periode/(:num)/(:num)'] = 'getsignups/course_summary/$1/$2';
 	$route['inschrijvingen/vak/(:any)/(:num)/(:num)'] ='getsignups/courses/$1/$2/$3';
-	$route['vakken/excel_export/(:num)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
 
-	$route['export/get_excel'] = 'excel_export/get_excel';
-	$route['export/to_excel'] = 'excel_export/to_excel';
+	$route['vakken/excel_export/(:any)/(:num)/(:num)'] ='getsignups/excel_export/$1/$2/$3';
 
 	/* PROFILE/STUDENT */
 	$route['mijn-inschrijvingen'] = 'my_enrollment';

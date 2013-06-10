@@ -27,19 +27,4 @@ class Xml_parser extends AD_Controller{
 		$this->load->model('xmlparser_model');
 		$this->xmlparser_model->insert();
 	}
-//shows all the data from the xml table inside our database. 
-	/*function getxml()
-	{
-		$this->load->library('menu');
-		$menu = new Menu;
-
-		$data['menu'] = $menu->show_menu();
-		$this->load->model('xmlparser_model');
-		$data['xml'] = $this->xmlparser_model->getxml();
-
-		$this->load->view('templates/frontend/header',$data);
-		$this->load->view('admin/xml/xml',$data);
-		$this->load->view('templates/frontend/footer');
-	}
-	*/
 }	

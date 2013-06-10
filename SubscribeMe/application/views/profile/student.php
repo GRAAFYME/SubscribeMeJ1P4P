@@ -17,6 +17,6 @@
 	</tr>
 </table>
 <ul>
-	<li><a href="/mijn-inschrijvingen">Mijn inschrijvingen</a></li>
-	<li><a href="/uitloggen">Uitloggen</a></li>
+	<li><a href="<?php echo base_url()?>mijn-inschrijvingen">Mijn inschrijvingen</a></li>
+	<li><a href="<?php echo base_url()?>uitloggen">Uitloggen</a></li>
 </ul>

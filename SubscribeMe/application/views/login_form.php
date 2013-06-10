@@ -5,8 +5,9 @@
 			<h1>Log in met je NHL account</h1>
 	<?php } ?>
 <?php
+$img_url = base_url()."images/nhllogob.png";
 echo form_open ('login/validate_credentials');
-echo "<h2>Gebruikersnaam</h2>" .'<img src="/images/nhllogob.png" alt="nhllogo" class="nhllogob">';
+echo "<h2>Gebruikersnaam</h2><img src=\"$img_url\" alt=\"nhllogo\" class=\"nhllogob\">";
 echo form_input('username', '', 'placeholder="Gebruikersnaam" class="boxes"');
 echo "<h2>Wachtwoord</h2>";
 echo form_password('password', '', 'placeholder="Wachtwoord" class="boxes"') ."<br /><br />";

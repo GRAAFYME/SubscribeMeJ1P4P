@@ -78,7 +78,7 @@ class Admin_tests extends AD_Controller {
 		$data['menu'] = $amenu->show_menu();
 
 		$this->load->view('templates/backend/header', $data);
-		$this->load->view('admin/toetsen/entryView_tests', $data);
+		$this->load->view('admin/tests/entryView_tests', $data);
 		$this->load->view('templates/backend/footer');
 	}
 
@@ -103,9 +103,16 @@ class Admin_tests extends AD_Controller {
 		$data['action'] = site_url('admin/toetsen/update/'.$id);
 		$data['link_back'] = anchor('admin/toetsen','Back to list of entries', array('class'=>'back'));
 		$data['course_name'] = $this->admin_tests_model->courses();
+		$data['course_fieldname'] = 'course_name';
 		$data['year_fieldname'] = 'year';
 		$data['period_fieldname'] = 'period';
 		$data['test_fieldname'] = 'test';
+
+		// Get $id from url
+		$id = $this->uri->segment(4);
+
+		// Get entry details
+		$data['entry'] = $this->admin_tests_model->get_by_id($id)->row();
 
 		// Load view
 		$amenu = new Amenu;
@@ -113,8 +120,6 @@ class Admin_tests extends AD_Controller {
 		$data['menu'] = $amenu->show_menu();
 
 		// Set question and answer field as required
-		$this->form_validation->set_rules('year', 'Year', 'required');
-		$this->form_validation->set_rules('period', 'Period', 'required');
 		$this->form_validation->set_rules('test', 'Test', 'required');
 
 		if ($this->form_validation->run() === FALSE) // Display error (year, period and/or test field is empty)
@@ -123,22 +128,10 @@ class Admin_tests extends AD_Controller {
 			$this->load->view('admin/entryEdit_tests', $data);
 			$this->load->view('templates/backend/footer');
 		}
-		else // Try update item into DB
+		else // Update item into DB
 		{
-			$bool = $this->admin_tests_model->update($id); // Update function will return true or false in $bool
-
-			if ($bool == false) // Display error
-			{
-				$data['message'] = "Something went wrong, please try again. Remember.. You can't save if you have 0 changes.";
-
-				$this->load->view('templates/backend/header', $data);
-				$this->load->view('admin/entryEdit_tests', $data);
-				$this->load->view('templates/backend/footer');
-			}
-			else // Current item successfully updated		
-			{
-				redirect('admin/toetsen'); // Redirect back to overview
-			}
+			$this->admin_tests_model->update($id); // Update function in model is called
+			redirect('admin/toetsen'); // Redirect back to overview
 		}
 	}
 

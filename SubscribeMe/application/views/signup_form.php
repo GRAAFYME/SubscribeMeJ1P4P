@@ -7,8 +7,8 @@ echo form_input('last_name', '', 'placeholder="Achternaam" class="boxes"');
 echo form_input('email', '', 'placeholder="E-mail" class="boxes"');
 echo form_input('username', '', 'placeholder="Gebruikersnaam" class="boxes"');
 echo form_password('password', '', 'placeholder="Wachtwoord" class="boxes"');
-echo form_password('password_confirm', '','placeholder="Bevestig wachtwoord" class="boxes"');
-echo form_submit('submit', 'Create Account');
+echo form_password('password_confirm', '','placeholder="Bevestig wachtwoord" class="boxes"') ."<br /><br />";
+echo form_submit('submit', 'Create Account >>', 'class="button"');
 echo form_close();
 echo validation_errors(); 
 if($show_error_message == TRUE)
