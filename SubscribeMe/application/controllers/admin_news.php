@@ -67,7 +67,7 @@ class Admin_news extends AD_Controller {
 		$this->form_validation->text = $this->input->post('text');
 
 		// Set common properties
-		$data['title'] = 'Create a FAQ item';
+		$data['title'] = 'Create a NEWS item';
 		$data['message'] = '';
 		$data['action'] = site_url('admin/nieuws/create');
 		$data['link_back'] = anchor('admin/nieuws', 'Back to list of entries', array('class'=>'back'));

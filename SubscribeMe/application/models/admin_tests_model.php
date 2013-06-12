@@ -43,10 +43,20 @@ class Admin_tests_model extends CI_Model {
 	}
 	
 	public function delete($id) 
-	{
-		// Delete entry by id
-		$this->db->where('id', $id);
-		$this->db->delete($this->tests);
+	{		
+		$data['signups'] = $this->db->get_where('signups', array('test_id' => $id))->row_array(); // Check if there is a singup for this specific test
+
+		if (empty($data['signups'])) // No signups for this specific test -> delete entry by id -> return TRUE
+		{
+			$this->db->where('id', $id);
+			$this->db->delete($this->tests);
+
+			return TRUE;
+		}
+		else // Found signups -> return FALSE
+		{
+			return FALSE;
+		}
 	}
 
 	public function courses()
