@@ -139,8 +139,15 @@ class Admin_tests extends AD_Controller {
 	{		
 		$id = $this->uri->segment(4); // Get $id from url
 		
-		$this->admin_tests_model->delete($id); // Delete this record
+		$bool = $this->admin_tests_model->delete($id); // Delete this record and return TRUE or FALSE
 
-		redirect('admin/toetsen'); // Redirect back to overview
+		if($bool) // Record successfully deleted
+		{
+			redirect('admin/toetsen'); // Redirect back to overview
+		}
+		else // Record can not be deleted
+		{	
+			redirect('admin/toetsen'); // Redirect back to overview
+		}
 	}
 }
