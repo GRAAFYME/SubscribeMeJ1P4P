@@ -406,6 +406,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="9938f79c-0b73-48cc-8e32-713882050a60"
+            isDerived="false"
+            sourceEndRoleName="Student"
+            targetEndRoleName="My enrollments"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9f56553e-0ac2-4de9-a822-ebfe758ba45d"
+              LastKnownName="My enrollments"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6fb27337-d254-4bc3-a0bc-7c8c56404209"
+                  name="Student"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="88d9d94c-6657-4bd7-929c-1ffe260bd863"
+                  name="My enrollments"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -534,45 +573,6 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="f667addf-29aa-42ba-b0c6-caf0fbeb6ffe"
-            isDerived="false"
-            sourceEndRoleName="Teacher"
-            targetEndRoleName="Enroll"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="42da2ea1-9443-439b-9d92-7c01c702f699"
-              LastKnownName="Enroll"
-              LastKnownLocation="UseCaseDiagram.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="d58e1c79-0a41-4276-a517-d8cbda06f24e"
-                  name="Teacher"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ccf4ad8d-01c2-45cf-9d20-186e88464811"
-                  name="Enroll"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="a2a50d1e-f9cc-4f34-913f-07525c3e5ad0"
             isDerived="false"
             sourceEndRoleName="Teacher"
@@ -690,45 +690,6 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="cc13db4c-f2d1-4fd2-ba88-ed12dcc03337"
-            isDerived="false"
-            sourceEndRoleName="Teacher"
-            targetEndRoleName="Control Panel (CMS)"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="eae59a02-43b1-4bf0-b0a4-07a2075cc23f"
-              LastKnownName="Control Panel (CMS)"
-              LastKnownLocation="UseCaseDiagram.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="803788b1-1f5b-4f79-9a37-3aa2c7a72975"
-                  name="Teacher"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="557347ae-a569-496c-81d8-e2614925a4a9"
-                  name="Control Panel (CMS)"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="b9b3fb5a-a415-423b-949c-16f9d400ea31"
             isDerived="false"
             sourceEndRoleName="Teacher"
@@ -757,6 +718,45 @@
                 <memberEnd
                   Id="cc5c3415-5926-4fce-8b3d-5755528962c9"
                   name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f56f21f2-0557-4b2e-b3db-e0af0338bb2b"
+            isDerived="false"
+            sourceEndRoleName="Teacher"
+            targetEndRoleName="Enrollments"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e9b36644-27e9-44de-8e46-efcebad08f44"
+              LastKnownName="Enrollments"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e88a76a3-d0d4-4d44-b0ff-07c52641d6b0"
+                  name="Teacher"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="75c28b81-337c-4de3-ae2a-c15dc5fb9b07"
+                  name="Enrollments"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -884,45 +884,6 @@
                 <memberEnd
                   Id="1bac8881-be10-41e5-a83f-5d655a6fd1fe"
                   name="News"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="6fca884d-61c7-482b-a054-81b3b83cc1c9"
-            isDerived="false"
-            sourceEndRoleName="Admin"
-            targetEndRoleName="Enroll"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="42da2ea1-9443-439b-9d92-7c01c702f699"
-              LastKnownName="Enroll"
-              LastKnownLocation="UseCaseDiagram.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="95111425-2efb-4f3a-bcca-2a4899931249"
-                  name="Admin"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="1aa831fd-9c38-406a-8cfe-a1eb0bdf42ee"
-                  name="Enroll"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -1372,6 +1333,201 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="1b8b629a-515e-43a9-9317-ba0b30bba56d"
+            isDerived="false"
+            sourceEndRoleName="Database"
+            targetEndRoleName="Login"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="2e1b2dec-7dd6-4646-b293-096d05ded4f8"
+              LastKnownName="Login"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fc4396c-4daf-419e-b10a-6b489d10156b"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a09f2d65-5755-4434-9743-b4cae95ba127"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8d4b512b-8b06-4f8c-8d6f-2cfcd1cee112"
+            isDerived="false"
+            sourceEndRoleName="Database"
+            targetEndRoleName="Home"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="5255aaba-77a3-4912-b137-934847e56217"
+              LastKnownName="Home"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="75b0c070-98bd-49d7-af12-2935c30bc381"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="053567d0-ce44-4c79-ab16-9f064c6527c7"
+                  name="Home"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b0c73ff4-a34a-4a6d-8d27-f4175f0d716f"
+            isDerived="false"
+            sourceEndRoleName="Database"
+            targetEndRoleName="My enrollments"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="9f56553e-0ac2-4de9-a822-ebfe758ba45d"
+              LastKnownName="My enrollments"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c02bda8a-4d84-471c-94e8-12afaf0bc02a"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2e781c6e-7051-46fc-9876-6afffbaa31bd"
+                  name="My enrollments"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="6a47aa9d-5fdd-4247-b9f2-b33ed1425120"
+            isDerived="false"
+            sourceEndRoleName="Database"
+            targetEndRoleName="Enrollments"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e9b36644-27e9-44de-8e46-efcebad08f44"
+              LastKnownName="Enrollments"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="439643bf-1c6c-4680-837f-288c2a5fe6c7"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e3d324ee-2f54-4059-b1e3-447df1161987"
+                  name="Enrollments"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="71629eb2-7d14-4f27-8105-9daf50b74da8"
+            isDerived="false"
+            sourceEndRoleName="Database"
+            targetEndRoleName="Logout"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="80b56ee3-a17f-4a2e-95dc-591c4d101b9d"
+              LastKnownName="Logout"
+              LastKnownLocation="UseCaseDiagram.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="706ac887-7c76-48ca-a348-0e5b4ff18e0d"
+                  name="Database"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="54761461-75ed-451a-b60d-704fc549db4e"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -1584,6 +1740,20 @@
           </extend>
         </extendedCases>
       </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9f56553e-0ac2-4de9-a822-ebfe758ba45d"
+        name="My enrollments"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e9b36644-27e9-44de-8e46-efcebad08f44"
+        name="Enrollments"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
