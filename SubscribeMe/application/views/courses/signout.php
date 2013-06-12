@@ -24,5 +24,7 @@
         ?>
     <?php endforeach?>
 </table>
-
-<?php echo "<input type=\"submit\" value=\"schrijf uit\" onClick=\"return confirm('Weet u zeker dat u zich wilt uitschrijven voor : $course_name, $test')\">"?>
+</br>
+<center>
+<?php echo "<input type=\"submit\" class=\"button\"  value=\"schrijf uit\" onClick=\"return confirm('Weet u zeker dat u zich wilt uitschrijven voor : $course_name, $test')\">"?>
+</center>

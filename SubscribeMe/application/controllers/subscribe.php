@@ -84,13 +84,15 @@ class Subscribe extends ST_Controller {
  	public function signup($id)
  	{
  		$this->subscribe_model ->signup($id);
+ 		$data['row'] = $this->subscribe_model->signup_information($id);
+ 		$data['username'] = ucfirst($this->session->userdata('username'));
 
 	 	  $dmenu = new Dmenu;
 	 	  $data['menu'] = $dmenu->show_menu();
 	 	  $data['title'] = 'Inschrijven';
 
 	 	  $this->load->view('templates/frontend/header', $data);
-	 	  $this->load->view('courses/signup');
+	 	  $this->load->view('courses/signup', $data);
 	 	  $this->load->view('templates/frontend/footer');
  	}
  	

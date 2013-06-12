@@ -24,5 +24,7 @@
         <?php echo form_open_multipart('subscribe/signup/'.$id);?>
 <?php endforeach?>
 </table>
-<input type="submit" value="Schrijf in" />
-    
+<br />
+<center>
+    <input type="submit" value="Schrijf in" class="button" />
+</center>    
