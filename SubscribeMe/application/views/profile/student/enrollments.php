@@ -22,7 +22,7 @@
             echo "<td>". $year."</td>";
             echo "<td>". $period."</td>";
             echo "<td>". $test ."</td>";?>
-            <?php echo "<td>"."<input type=\"submit\" value=\"schrijf uit\" onClick=\"return confirm('Weet u zeker dat u zich wilt uitschrijven voor : $course_name, $test')\">"."</td>"?>
+            <?php echo "<td>"."<input type=\"submit\" value=\"schrijf uit\" class=\"button\" onClick=\"return confirm('Weet u zeker dat u zich wilt uitschrijven voor : $course_name, $test')\">"."</td>"?>
             <?php
             echo form_close();
             echo "</tr>";

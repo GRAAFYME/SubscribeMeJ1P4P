@@ -46,10 +46,11 @@
 #menu > ul > li > a
 {
     font-family: 'Eras Light ITC';
-    font-size: 15px;    
+    font-size: 15px;  
+    font-weight: bold;  
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #388E8E;
+    color: #ffffff;
 
     line-height: 40px;
     padding: 10px 20px;
