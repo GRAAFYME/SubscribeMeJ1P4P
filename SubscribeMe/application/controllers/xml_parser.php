@@ -1,23 +1,24 @@
 <?php
+class Xml_parser extends AD_Controller {
 
-//class for xml parser just a test for now 
-class Xml_parser extends AD_Controller{
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('file');
-		$this->load->library('dmenu');
+
+		$this->load->helper('file'); // Load helper(s)
+
+		$this->load->library('amenu'); // Load library(s)
 	}
 
-//this function loads the xml file and parses it into the $data which will be sent to the views
+	// This function loads the xml file and parses it into the database and a succes page will be loaded
 	function index()
 	{
 		$data = get_filenames("uploads");
 		$file['file'] = end($data);
 
-		$dmenu = new Dmenu;
+		$amenu = new Amenu;
 		
-		$data['menu'] = $dmenu->show_menu();
+		$data['menu'] = $amenu->show_menu();
 		$data['title'] = 'XML';
 
 		$this->load->view('templates/backend/header', $data);

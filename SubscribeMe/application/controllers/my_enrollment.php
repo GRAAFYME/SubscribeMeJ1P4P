@@ -1,6 +1,5 @@
 <?php
-
-class MY_Enrollment extends ST_Controller{
+class MY_Enrollment extends ST_Controller {
 
 	public function __construct()
 	{

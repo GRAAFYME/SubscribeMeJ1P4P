@@ -3,12 +3,12 @@ class Faq_model extends CI_Model {
 
 	public function __construct()
 	{
-		$this->load->database();
+		parent::__construct();
 	}
-	
+
 	public function get_faq($slug = FALSE)
 	{
-		if ($slug === FALSE)
+		if ($slug === FALSE)	// Gets all the faq items and returns them ordered by question, asc
 		{
 			$this->db->select("*");
 			$this->db->from("faq");
@@ -16,8 +16,10 @@ class Faq_model extends CI_Model {
 			$query = $this->db->get();
 			return $query->result_array();
 		}
-		
-		$query = $this->db->get_where('faq', array('slug' => $slug));
-		return $query->row_array();
+		else // Gets and returns a specific faq item
+		{		
+			$query = $this->db->get_where('faq', array('slug' => $slug)); 
+			return $query->row_array();
+		}
 	}	
 }

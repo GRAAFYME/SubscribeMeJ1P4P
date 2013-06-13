@@ -1,15 +1,15 @@
 <?php
-
 class Membership_model extends CI_Model {
 
 	public function __construct()
 	{
+		parent::__construct();
+
 		define("_SECURE_",time());
-		include_once('./application/config/ldapconfig.php');
+		include_once('./application/config/ldapconfig.php'); // Load ldapconfig.php
 	}
 
-	//validates the user input with the database, if the number of rows equils 1 this function will return true to the controller
-	// if password = '' || username = '' false else try validate is dit nodig of al genoeg ondervangen in login.php door min lenght op 2 te zetten??
+	// Validates the user input with the database or LDAP, depends on the username
 	function validate() {
 		$localcheck = explode('_', $this->input->post('username'));
 		if($localcheck[0] == "admin" || $localcheck[0] == "personeel" || $localcheck[0] == "student")
@@ -60,6 +60,7 @@ class Membership_model extends CI_Model {
 		}
 	}
 
+	// Gets and returns a role
 	function getrole() {
 		
 		$localcheck = explode('_', $this->input->post('username'));
@@ -78,9 +79,6 @@ class Membership_model extends CI_Model {
 		else
 		{
 			$username = $this->input->post('username');
-
-			// get role from ldap.
-			//return "student";
 		
 			$connection = @ldap_connect(_ldapServer_,_ldapPort_) or die(ldap_error());
 			if($connection)
@@ -122,6 +120,7 @@ class Membership_model extends CI_Model {
 		}		
 	}
 
+	// Gets and returns a name
 	function getname($user) {
 		
 		$username = $user;
@@ -138,7 +137,6 @@ class Membership_model extends CI_Model {
 		}
 		else
 		{		
-			// Get name from ldap
 			$connection = @ldap_connect(_ldapServer_,_ldapPort_) or die(ldap_error());
 			if($connection)
 			{
@@ -159,6 +157,7 @@ class Membership_model extends CI_Model {
 		}		
 	}
 
+	// Gets and returns a email
 	function getemail($user) {
 		
 		$username = $user;
@@ -194,7 +193,7 @@ class Membership_model extends CI_Model {
 		}		
 	}
 
-	//stores the user input in the users table , the password will be hashed into the database
+	// Stores the user input in the users table , the password will be hashed into the database
 	function create_member() 
 	{
 		$data['username'] = $this->db->get_where('users', array('username' => $this->input->post('username')))->row_array(); // Check if username already exists
@@ -216,8 +215,5 @@ class Membership_model extends CI_Model {
 		{
 			return FALSE;
 		}
-	}
-
-
-	
+	}	
 }

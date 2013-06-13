@@ -27,7 +27,7 @@ class Upload extends AD_Controller {
 		function do_upload()
 		{
 			$config['upload_path'] = './uploads/';
-			$config['allowed_types'] = 'xml';
+			$config['allowed_types'] = '*';
 
 			$this->load->library('upload', $config);
 

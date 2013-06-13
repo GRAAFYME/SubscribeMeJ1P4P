@@ -3,9 +3,10 @@ class Page_model extends CI_Model {
 
 	public function __construct()
 	{
-		$this->load->database();
+		parent::__construct();
 	}
 
+	// Gets the text for home
 	public function get_home()
 	{
 		$home = "home";
@@ -13,6 +14,7 @@ class Page_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	// Gets the text for subscribe
 	public function get_subscribe()
 	{
 		$subscribe = "subscribe";

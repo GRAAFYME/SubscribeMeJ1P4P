@@ -1,31 +1,33 @@
 <?php
-
 class Subscribe_model extends CI_Model {
-//Gets all the information from the xml table. 
+
 	public function __construct()
 	{
-		$this->load->database();
-		$this->load->library('session');
+		parent::__construct();
 	}
 
-
+	// Gets and returns all the tests
 	public function getall()
 	{
 		$query = $this->db->get('tests');
 		return $query->result_array();
 	}
+
+	// Gets and returns all the tests for a specific year
 	public function getxml($year)
 	{
 		$query = $this->db->get_where('tests', array('year'=>$year));
 		return $query->result_array();
 	}
 
+	// Gets and returns a speficic test
 	public function getcourse($id)
 	{
 		$query = $this->db->get_where('tests', array('id'=>$id));
 		return $query->result_array();
 	}
 
+	// Subscribes a user for a speficic test
 	public function signup($id)
 	{
 		$query = $this->db->get_where('tests', array('id' => $id));
@@ -44,12 +46,14 @@ class Subscribe_model extends CI_Model {
 		$this->db->insert('signups', $data);
 	}
 
+	// Gets and returns a specific test
 	public function signup_information($id)
 	{
 		$query = $this->db->get_where('tests', array('id' => $id));
 		return $query->row_array();
 	}
 
+	// Gets and returns all tests in a specific year and period
 	public function getperiod($year, $period)
 	{
 		$this->db->select('*');
@@ -60,6 +64,7 @@ class Subscribe_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	// Checks if the user is already subscribed for a test
 	public function alreadysignedup($username, $id)
 	{
 		$this->db->where('username', $username);
@@ -76,9 +81,10 @@ class Subscribe_model extends CI_Model {
 			return false;
 		}
 	}
+
+	// Unrolls a user from a specific test
 	public function unroll($id)
 	{
 		$this->db->delete('signups', array('test_id'=>$id));		
 	}
-
 }

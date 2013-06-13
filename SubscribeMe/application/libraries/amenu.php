@@ -2,6 +2,7 @@
 
 class Amenu {
 
+  // Here we build the amenu -> admin menu
   function show_menu()
   {
     $obj =& get_instance();

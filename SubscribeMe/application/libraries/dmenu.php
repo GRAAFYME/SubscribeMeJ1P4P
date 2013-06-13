@@ -2,6 +2,7 @@
 
 class Dmenu {
 
+  // Here we build the dmenu -> default menu
   function show_menu()
   {
     $obj =& get_instance();

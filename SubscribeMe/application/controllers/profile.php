@@ -4,13 +4,15 @@ class Profile extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('membership_model');
-		$this->load->library('dmenu');
-		$this->load->library('amenu');	
+
+		$this->load->model('membership_model'); // Load model(s)
+
+		$this->load->library('dmenu'); // Load library(s)
 	}
 
 	public function index()
 	{
+		// Set variables that can be used for all views
 		$dmenu = new Dmenu;
 
 		$data['menu'] = $dmenu->show_menu();
@@ -21,7 +23,7 @@ class Profile extends MY_Controller {
 
 		$data['username'] = ucfirst($this->session->userdata('username'));
 		
-		if($this->session->userdata('role') == "admin")
+		if($this->session->userdata('role') == "admin") // Load view for a admin
 		{			
 			$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
 			$data['email'] = $email['email'];
@@ -31,14 +33,14 @@ class Profile extends MY_Controller {
 			$this->load->view('templates/frontend/footer');
 		}
 
-		else if($this->session->userdata('role') == "personeel")
+		else if($this->session->userdata('role') == "personeel") // Load view for a personeel
 		{
-			if($this->session->userdata('username') == "personeel")
+			if($this->session->userdata('username') == "personeel") // If its a local DB account (test account) -> use settings below to fill name and email field
 			{
 				$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
 				$data['email'] = $email['email'];
 			}
-			else
+			else // Else (LDAP) -> use settings below to fill name and email field
 			{
 				$data['name'] = $name;
 			 	$data['email'] = $email;
@@ -49,14 +51,14 @@ class Profile extends MY_Controller {
 			$this->load->view('templates/frontend/footer');
 		}
 
-		else if($this->session->userdata('role') == "student")
+		else if($this->session->userdata('role') == "student") // Load view for a student
 		{
-			if($this->session->userdata('username') == "student")
+			if($this->session->userdata('username') == "student") // If its a local DB account (test account) -> use settings below to fill name and email field
 			{
 				$data['name'] = $name['first_name'] ."&nbsp;" .$name['last_name'];
 				$data['email'] = $email['email'];
 			}
-			else
+			else // Else (LDAP) -> use settings below to fill name and email field
 			{
 				$data['name'] = $name;
 			 	$data['email'] = $email;
