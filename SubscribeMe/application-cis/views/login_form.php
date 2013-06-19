@@ -21,3 +21,4 @@ if($show_error_message == TRUE)
 }
 ?>
 <h3>Storing of vraag? Bel support 058-251 2552</h3>
+<b><font color="red">LET OP! >> Dit is geen SAML!</font></b>

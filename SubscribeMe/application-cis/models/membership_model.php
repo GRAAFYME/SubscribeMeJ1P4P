@@ -6,7 +6,7 @@ class Membership_model extends CI_Model {
 		parent::__construct();
 
 		define("_SECURE_",time());
-		include_once('./application/config/ldapconfig.php'); // Load ldapconfig.php
+		include_once('./application-cis/config/ldapconfig.php'); // Load ldapconfig.php
 	}
 
 	// Validates the user input with the database or LDAP, depends on the username
